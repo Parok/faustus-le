@@ -26,10 +26,8 @@ jobs:
       - name: Build project
         run: npm run build
 
-      # Step 4: Deploy to Strato via SFTP with SSH key
-      - name: Deploy to Strato via SFTP with SSH key
-      # Step 4: Deploy to Strato via SFTP with SSH key
-      - name: Deploy to Strato via SFTP with SSH key
+      # Step 4: Deploy to Strato via SFTP with password
+      - name: Deploy to Strato via SFTP with password
         uses: appleboy/scp-action@v0.1.0
         with:
           host: ssh.strato.de
