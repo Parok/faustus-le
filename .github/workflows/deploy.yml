@@ -3,7 +3,7 @@ name: Build and Deploy Faustus Front
 on:
   push:
     branches:
-      - main  # Triggers the workflow on push to the main branch
+      - main  # Trigger the workflow on pushes to the main branch
 
 jobs:
   build-and-deploy:
@@ -26,14 +26,32 @@ jobs:
       - name: Build project
         run: npm run build
 
-      # Step 4: Deploy to Strato via SFTP with password
-      - name: Deploy to Strato via SFTP with password
+      # Step 4: Archive the build output
+      - name: Archive build output
+        run: tar -czvf build.tar.gz -C build .
+
+      # Step 5: Upload the tarball to Strato server via SFTP
+      - name: Upload Tarball to Strato
         uses: appleboy/scp-action@v0.1.0
         with:
           host: ssh.strato.de
           port: 22
           username: ${{ secrets.SFTP_USERNAME }}
-          password: ${{ secrets.SFTP_PASSWORD }}  # Use password from GitHub Secrets
-          source: "./build/*"                    # Local directory (build output)
-          target: "/STRATO-apps/wordpress_01/app/wp-content/plugins/faustus-front"  # Target directory on server
-          overwrite: true                        # Overwrite existing files
+          password: ${{ secrets.SFTP_PASSWORD }}
+          source: "build.tar.gz"  # Upload the archive created in the previous step
+          target: "/STRATO-apps/wordpress_01/app/wp-content/plugins/faustus-front/build.tar.gz"
+          overwrite: true
+          debug: true
+
+      # Step 6: Extract the tarball on the server
+      - name: Extract Files on Server
+        uses: appleboy/ssh-action@v0.1.0
+        with:
+          host: ssh.strato.de
+          port: 22
+          username: ${{ secrets.SFTP_USERNAME }}
+          password: ${{ secrets.SFTP_PASSWORD }}
+          script: |
+            cd /STRATO-apps/wordpress_01/app/wp-content/plugins/faustus-front
+            tar -xzvf build.tar.gz
+            rm build.tar.gz  # Clean up by removing the tarball after extraction
