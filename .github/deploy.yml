@@ -1,0 +1,38 @@
+name: Build and Deploy Faustus Front
+
+on:
+  push:
+    branches:
+      - main  # Triggers the workflow on push to the main branch
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Check out the code
+      - name: Check out code
+        uses: actions/checkout@v2
+
+      # Step 2: Set up Node.js
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+
+      # Step 3: Install dependencies and build the project
+      - name: Install dependencies
+        run: npm install
+      - name: Build project
+        run: npm run build
+
+      # Step 4: Deploy to Strato via SFTP
+      - name: Deploy to Strato via SFTP
+        uses: appleboy/scp-action@v0.1.0
+        with:
+          host: ssh.strato.de
+          port: 22
+          username: ${{ secrets.SFTP_USERNAME }}
+          password: ${{ secrets.SFTP_PASSWORD }}
+          source: "./build/*"           # Local directory (build output)
+          target: "/STRATO-apps/wordpress_01/app/wp-content/plugins/faustus-front"  # Corrected path for plugin deployment
