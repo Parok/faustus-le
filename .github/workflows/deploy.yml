@@ -26,13 +26,13 @@ jobs:
       - name: Build project
         run: npm run build
 
-      # Step 4: Deploy to Strato via SFTP
-      - name: Deploy to Strato via SFTP
+      # Step 4: Deploy to Strato via SFTP with SSH key
+      - name: Deploy to Strato via SFTP with SSH key
         uses: appleboy/scp-action@v0.1.0
         with:
           host: ssh.strato.de
           port: 22
           username: ${{ secrets.SFTP_USERNAME }}
-          password: ${{ secrets.SFTP_PASSWORD }}
-          source: "./build/*"           # Local directory (build output)
-          target: "/STRATO-apps/wordpress_01/app/wp-content/plugins/faustus-front"  # Corrected path for plugin deployment
+          key: ${{ secrets.SFTP_PRIVATE_KEY }}   # Use the SSH private key stored in GitHub Secrets
+          source: "./build/*"                    # Local directory (build output)
+          target: "/STRATO-apps/wordpress_01/app/wp-content/plugins/faustus-front"  # Path for plugin deployment
