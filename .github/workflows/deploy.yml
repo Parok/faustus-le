@@ -36,3 +36,4 @@ jobs:
           password: ${{ secrets.SFTP_PASSWORD }}  # Use password from GitHub Secrets
           source: "./build/*"                    # Local directory (build output)
           target: "/STRATO-apps/wordpress_01/app/wp-content/plugins/faustus-front"  # Target directory on server
+          overwrite: true                        # Overwrite existing files
