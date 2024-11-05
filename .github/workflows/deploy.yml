@@ -33,6 +33,6 @@ jobs:
           server: "sftp://ssh.strato.de"  # Specify SFTP server address
           username: ${{ secrets.SFTP_USERNAME }}
           password: ${{ secrets.SFTP_PASSWORD }}
-          local-dir: "./build"  # Path to the local build folder
+          local-dir: "./build/"  # Path to the local build folder
           server-dir: "/STRATO-apps/wordpress_01/app/wp-content/plugins/faustus-front"  # Remote directory on the server
           log-level: verbose  # Enable detailed logging for debugging
