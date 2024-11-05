@@ -62,4 +62,5 @@ jobs:
           sshpass -p "${{ secrets.SFTP_PASSWORD }}" sftp -o StrictHostKeyChecking=no -P 22 ${{ secrets.SFTP_USERNAME }}@ssh.strato.de <<EOF
           mkdir /STRATO-apps/wordpress_01/app/wp-content/plugins/faustus-front/public/
           put -r widgets/faustus-front/public/* /STRATO-apps/wordpress_01/app/wp-content/plugins/faustus-front/public/
-    
+          bye
+          EOF
