@@ -26,25 +26,15 @@ jobs:
       - name: Build project
         run: npm run build
 
-      # Step 4: Archive the build output
-      - name: Archive build output
-        run: tar -czvf build.tar.gz -C build .
-
-      # Step 5: Upload the tarball and extract it on the server
-      - name: Upload and Extract on Server
-        uses: appleboy/ssh-action@v0.1.0
+      # Step 4: Deploy files via SFTP
+      - name: Deploy to Strato via SFTP
+        uses: appleboy/scp-action@v0.1.0
         with:
           host: ssh.strato.de
           port: 22
           username: ${{ secrets.SFTP_USERNAME }}
           password: ${{ secrets.SFTP_PASSWORD }}
-          script: |
-            echo "Uploading tarball..."
-            scp -o StrictHostKeyChecking=no -P 22 build.tar.gz ${{ secrets.SFTP_USERNAME }}@ssh.strato.de:/STRATO-apps/wordpress_01/app/wp-content/plugins/faustus-front/
-            echo "Navigating to the target directory..."
-            cd /STRATO-apps/wordpress_01/app/wp-content/plugins/faustus-front || { echo "Directory not found"; exit 1; }
-            echo "Extracting the tarball..."
-            tar -xzvf build.tar.gz || { echo "Extraction failed"; exit 1; }
-            echo "Cleaning up..."
-            rm build.tar.gz
-            echo "Deployment complete."
+          source: "./build/**"                     # Upload all files from the build directory
+          target: "/STRATO-apps/wordpress_01/app/wp-content/plugins/faustus-front"  # Target directory on server
+          overwrite: true                           # Allow overwriting existing files
+          debug: true                               # Enable detailed logging
