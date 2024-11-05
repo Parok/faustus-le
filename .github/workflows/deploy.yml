@@ -55,3 +55,6 @@ jobs:
             cd /STRATO-apps/wordpress_01/app/wp-content/plugins/faustus-front
             tar -xzvf build.tar.gz
             rm build.tar.gz  # Clean up the tarball after extraction
+
+
+      # Step 7: Clean up
