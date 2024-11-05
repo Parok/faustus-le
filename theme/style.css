@@ -1,0 +1,43 @@
+/*
+Theme Name: Dr. Faustus Theme
+Description: A dark, alternative WordPress theme for the Dr. Faustus website.
+Version: 1.0
+Author: Your Name
+*/
+
+body {
+    background-color: #1a1a1a; /* Dark background */
+    color: #e0e0e0; /* Light text color for readability */
+    font-family: 'Open Sans', sans-serif;
+}
+
+a {
+    color: #a43e6c; /* Accent color for links */
+    text-decoration: none;
+}
+
+a:hover {
+    color: #e84284; /* Lighter accent color on hover */
+}
+
+/* Header and footer styling */
+.site-header, .site-footer {
+    background-color: #2b2b2b; /* Dark gray for header/footer */
+    color: #e0e0e0;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Button styles */
+button, .wp-block-button__link, input[type="submit"] {
+    background-color: #a43e6c;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+button:hover, .wp-block-button__link:hover, input[type="submit"]:hover {
+    background-color: #e84284;
+}
