@@ -11,7 +11,7 @@ jobs:
 
     steps:
       # Step 1: Check out the code
-      - name: Check out code
+      - name: Checkout code
         uses: actions/checkout@v2
 
       # Step 2: Set up Node.js
@@ -20,17 +20,41 @@ jobs:
         with:
           node-version: '16'
 
-      # Step 3: Install dependencies and build the project
-      - name: Install dependencies
-        run: npm install
-      - name: Build project
-        run: npm run build
+      # Step 3: Check for Changes in Theme or Widget
+      - name: Check for Theme Changes
+        id: theme_changes
+        run: |
+          git diff --name-only ${{ github.event.before }} ${{ github.sha }} | grep '^theme/' || echo "no_theme_changes" > /tmp/no_theme_changes
 
-      # Step 4: Upload files via SFTP using sshpass
-      - name: Upload via SFTP
+      - name: Check for Widget Changes
+        id: widget_changes
+        run: |
+          git diff --name-only ${{ github.event.before }} ${{ github.sha }} | grep '^widgets/' || echo "no_widget_changes" > /tmp/no_widget_changes
+
+      # Step 4: Install dependencies and build the React widget if it has changed
+      - name: Install dependencies and build widget
+        if: steps.widget_changes.outputs.widget_changes != 'no_widget_changes'
+        run: |
+          cd widgets/faustus-front
+          npm install
+          npm run build
+
+      # Step 5: Upload Theme Files via SFTP if there are changes in theme/
+      - name: Upload Theme Files via SFTP
+        if: steps.theme_changes.outputs.theme_changes != 'no_theme_changes'
         run: |
           sudo apt-get update && sudo apt-get install -y sshpass
-          sshpass -p "${{ secrets.SFTP_PASSWORD }}" sftp -o StrictHostKeyChecking=no -P 22 ${{ secrets.SFTP_USERNAME }}@ssh.strato.de <<EOF
-          put -r build/* /STRATO-apps/wordpress_01/app/wp-content/plugins/faustus-front/
+          sshpass -p "${{ secrets.SFTP_PASSWORD }}" sftp -o StrictHostKeyChecking=no -P 22 ${{ secrets.SFTP_USERNAME }}@ftp.yourdomain.com <<EOF
+          put -r theme/* /STRATO-apps/wordpress_01/app/wp-content/themes/faustus-club-theme/
+          bye
+          EOF
+
+      # Step 6: Upload Widget Build Files via SFTP if there are changes in widgets/faustus-front/
+      - name: Upload Widget Files via SFTP
+        if: steps.widget_changes.outputs.widget_changes != 'no_widget_changes'
+        run: |
+          sudo apt-get update && sudo apt-get install -y sshpass
+          sshpass -p "${{ secrets.SFTP_PASSWORD }}" sftp -o StrictHostKeyChecking=no -P 22 ${{ secrets.SFTP_USERNAME }}@ftp.yourdomain.com <<EOF
+          put -r widgets/faustus-front/public/* /STRATO-apps/wordpress_01/app/wp-content/plugins/faustus-front/public/
           bye
           EOF
