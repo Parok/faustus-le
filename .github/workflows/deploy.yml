@@ -13,6 +13,8 @@ jobs:
       # Step 1: Check out the code
       - name: Checkout code
         uses: actions/checkout@v2
+        with:
+          fetch-depth: 0  # Fetch full history for accurate git diff
 
       # Step 2: Set up Node.js
       - name: Set up Node.js
@@ -44,6 +46,9 @@ jobs:
         if: steps.theme_changes.outputs.theme_changes != 'no_theme_changes'
         run: |
           sudo apt-get update && sudo apt-get install -y sshpass
+          # Ensure the theme directory exists
+          sshpass -p "${{ secrets.SFTP_PASSWORD }}" ssh -o StrictHostKeyChecking=no -P 22 ${{ secrets.SFTP_USERNAME }}@ssh.strato.de "mkdir -p /STRATO-apps/wordpress_01/app/wp-content/themes/faustus-club-theme/"
+          # Upload theme files
           sshpass -p "${{ secrets.SFTP_PASSWORD }}" sftp -o StrictHostKeyChecking=no -P 22 ${{ secrets.SFTP_USERNAME }}@ssh.strato.de <<EOF
           put -r theme/* /STRATO-apps/wordpress_01/app/wp-content/themes/faustus-club-theme/
           bye
@@ -55,6 +60,8 @@ jobs:
         run: |
           sudo apt-get update && sudo apt-get install -y sshpass
           sshpass -p "${{ secrets.SFTP_PASSWORD }}" sftp -o StrictHostKeyChecking=no -P 22 ${{ secrets.SFTP_USERNAME }}@ssh.strato.de <<EOF
+          mkdir /STRATO-apps/wordpress_01/app/wp-content/plugins/faustus-front/public/
           put -r widgets/faustus-front/public/* /STRATO-apps/wordpress_01/app/wp-content/plugins/faustus-front/public/
           bye
           EOF
+S
