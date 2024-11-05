@@ -26,15 +26,13 @@ jobs:
       - name: Build project
         run: npm run build
 
-      # Step 4: Deploy files via SFTP
-      - name: Deploy to Strato via SFTP
-        uses: appleboy/scp-action@v0.1.0
+      # Step 4: Deploy to Strato via SFTP using git-ftp-action
+      - name: Deploy via SFTP
+        uses: SamKirkland/FTP-Deploy-Action@4.2.0
         with:
-          host: ssh.strato.de
-          port: 22
+          server: "sftp://ssh.strato.de"  # Specify SFTP server address
           username: ${{ secrets.SFTP_USERNAME }}
           password: ${{ secrets.SFTP_PASSWORD }}
-          source: "./build/**"                     # Upload all files from the build directory
-          target: "/STRATO-apps/wordpress_01/app/wp-content/plugins/faustus-front"  # Target directory on server
-          overwrite: true                           # Allow overwriting existing files
-          debug: true                               # Enable detailed logging
+          local-dir: "./build"  # Path to the local build folder
+          server-dir: "/STRATO-apps/wordpress_01/app/wp-content/plugins/faustus-front"  # Remote directory on the server
+          log-level: verbose  # Enable detailed logging for debugging
