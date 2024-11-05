@@ -30,7 +30,7 @@ jobs:
       - name: Archive build output
         run: tar -czvf build.tar.gz -C build .
 
-      # Step 5: Upload the tarball to Strato server via SFTP
+      # Step 5: Upload the tarball to Strato server
       - name: Upload Tarball to Strato
         uses: appleboy/scp-action@v0.1.0
         with:
@@ -39,12 +39,12 @@ jobs:
           username: ${{ secrets.SFTP_USERNAME }}
           password: ${{ secrets.SFTP_PASSWORD }}
           source: "build.tar.gz"  # Upload the tar archive
-          target: "/STRATO-apps/wordpress_01/app/wp-content/plugins/faustus-front/"  # Specify only the directory
+          target: "/STRATO-apps/wordpress_01/app/wp-content/plugins/faustus-front/"  # Only the directory path
           overwrite: true
           debug: true
 
-      # Step 6: Extract the tarball on the server
-      - name: Extract Files on Server
+      # Step 6: Extract and Verify Files on Server
+      - name: Extract and Verify Files on Server
         uses: appleboy/ssh-action@v0.1.0
         with:
           host: ssh.strato.de
@@ -52,10 +52,10 @@ jobs:
           username: ${{ secrets.SFTP_USERNAME }}
           password: ${{ secrets.SFTP_PASSWORD }}
           script: |
-            pwd  # Print the current working directory
-            cd /STRATO-apps/wordpress_01/app/wp-content/plugins/faustus-front
-            tar -xzvf build.tar.gz
-            rm build.tar.gz  # Clean up the tarball after extraction
-
-
-      # Step 7: Clean up
+            echo "Navigating to the target directory..."
+            cd /STRATO-apps/wordpress_01/app/wp-content/plugins/faustus-front || { echo "Directory not found"; exit 1; }
+            echo "Extracting the tarball..."
+            tar -xzvf build.tar.gz || { echo "Extraction failed"; exit 1; }
+            echo "Cleaning up..."
+            rm build.tar.gz
+            echo "Deployment complete."
