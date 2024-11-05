@@ -64,4 +64,3 @@ jobs:
           put -r widgets/faustus-front/public/* /STRATO-apps/wordpress_01/app/wp-content/plugins/faustus-front/public/
           bye
           EOF
-S
