@@ -52,6 +52,7 @@ jobs:
           username: ${{ secrets.SFTP_USERNAME }}
           password: ${{ secrets.SFTP_PASSWORD }}
           script: |
+            pwd  # Print the current working directory
             cd /STRATO-apps/wordpress_01/app/wp-content/plugins/faustus-front
             tar -xzvf build.tar.gz
             rm build.tar.gz  # Clean up the tarball after extraction
