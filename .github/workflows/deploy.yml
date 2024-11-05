@@ -46,8 +46,7 @@ jobs:
         if: steps.theme_changes.outputs.theme_changes != 'no_theme_changes'
         run: |
           sudo apt-get update && sudo apt-get install -y sshpass
-          # Ensure the theme directory exists
-          sshpass -p "${{ secrets.SFTP_PASSWORD }}" ssh -o StrictHostKeyChecking=no -p 22 ${{ secrets.SFTP_USERNAME }}@ssh.strato.de "mkdir -p /STRATO-apps/wordpress_01/app/wp-content/themes/faustus-club-theme/"
+          
           # Upload theme files
           sshpass -p "${{ secrets.SFTP_PASSWORD }}" sftp -o StrictHostKeyChecking=no -p 22 ${{ secrets.SFTP_USERNAME }}@ssh.strato.de <<EOF
           put -r theme/* /STRATO-apps/wordpress_01/app/wp-content/themes/faustus-club-theme/
