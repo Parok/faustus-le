@@ -1,0 +1,13 @@
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .main-navigation {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .container {
+        padding: 10px;
+    }
+    footer {
+        font-size: 0.75em;
+    }
+}

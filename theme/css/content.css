@@ -1,0 +1,7 @@
+/* Content Container */
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    color: #ddd;
+}
