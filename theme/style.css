@@ -12,28 +12,21 @@ Author: Your Name
 Description: A dark, atmospheric theme for Faustus Club.
 Version: 1.0
 */
-
-/* Basic Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* Global Body Styling */
+/* Global Styling for Dark Faustus Theme */
 body {
-    font-family: 'Lora', serif; /* Gothic or serif font for the body */
+    font-family: 'Lora', serif;
     color: #e0e0e0;
-    background-color: #0b0b0b; /* Darker, deeper black for a more immersive background */
-    line-height: 1.6;
-    overflow-x: hidden;
+    background-color: #121212; /* Dark, but softened for readability */
+    background-image: url('images/dark-parchment.jpg'); /* Subtle texture to evoke parchment */
+    background-size: cover;
+    background-attachment: fixed;
+    line-height: 1.8;
 }
-
-/* Links */
 a {
-    color: #b03030; /* Deep crimson for a touch of mystery */
+    color: #a60000; /* Blood red, like sealing wax or old ink */
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: color 0.3s;
 }
 a:hover {
-    color: #f
+    color: #d4af37; /* Muted gold on hover, symbolizing temptation */
+}

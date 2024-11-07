@@ -1,24 +1,19 @@
 /* Header */
 .site-header {
-    background-color: #0e0e0e;
-    padding: 20px 0;
-    color: #f5f5f5;
-    border-bottom: 1px solid #333;
+    background-color: #1c1c1c;
+    padding: 30px 0;
+    color: #d4af37; /* Muted gold color for a classic feel */
+    border-bottom: 2px solid #333;
     text-align: center;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.6);
 }
 .logo a {
-    color: #d7d7d7;
-    font-size: 2em;
-    font-family: 'Cinzel Decorative', serif; /* Gothic font for logo */
-    letter-spacing: 2px;
-    text-decoration: none;
-    transition: color 0.3s ease;
+    font-family: 'Cinzel Decorative', serif;
+    color: #d4af37;
+    font-size: 2.5em;
+    letter-spacing: 1.5px;
+    text-shadow: 0 2px 3px rgba(0, 0, 0, 0.8);
 }
-.logo a:hover {
-    color: #b03030;
-}
-
 .main-navigation {
     display: flex;
     justify-content: center;
@@ -29,21 +24,22 @@
     list-style: none;
 }
 .nav-menu li a {
-    color: #a5a5a5;
-    font-family: 'Lora', serif;
+    color: #f5e0c1; /* Light parchment color for link text */
+    font-family: 'Cormorant Garamond', serif;
     font-size: 1.1em;
     position: relative;
     transition: color 0.3s ease;
 }
 .nav-menu li a:hover {
-    color: #f2f2f2;
+    color: #d4af37;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
 }
 .nav-menu li a::after {
     content: '';
     display: block;
     width: 0;
     height: 2px;
-    background: #b03030;
+    background: #a60000;
     transition: width 0.3s;
 }
 .nav-menu li a:hover::after {
