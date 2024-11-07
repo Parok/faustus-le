@@ -22,16 +22,18 @@ Version: 1.0
 
 /* Global Body Styling */
 body {
-    font-family: Arial, sans-serif;
-    color: #ddd;
-    background-color: #111;
+    font-family: 'Lora', serif; /* Gothic or serif font for the body */
+    color: #e0e0e0;
+    background-color: #0b0b0b; /* Darker, deeper black for a more immersive background */
+    line-height: 1.6;
+    overflow-x: hidden;
 }
 
 /* Links */
 a {
-    color: #bbb;
+    color: #b03030; /* Deep crimson for a touch of mystery */
     text-decoration: none;
+    transition: color 0.3s ease;
 }
 a:hover {
-    color: #fff;
-}
+    color: #f

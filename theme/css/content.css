@@ -1,7 +1,19 @@
+
 /* Content Container */
 .container {
     max-width: 1000px;
-    margin: 0 auto;
+    margin: 40px auto;
     padding: 20px;
-    color: #ddd;
+    color: #e5e5e5;
+    background: rgba(20, 20, 20, 0.85); /* Dark, translucent background for layered feel */
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cinzel', serif;
+    color: #d1d1d1;
+}
+p {
+    font-family: 'Open Sans', sans-serif;
+    color: #cfcfcf;
 }

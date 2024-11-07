@@ -1,8 +1,19 @@
+
 /* Footer */
 footer {
-    padding: 20px;
-    background-color: #111;
-    color: #777;
+    padding: 30px;
+    background: linear-gradient(180deg, #111 0%, #0b0b0b 100%);
+    color: #666;
     text-align: center;
-    font-size: 0.85em;
+    font-size: 0.9em;
+    font-family: 'Lora', serif;
+    border-top: 1px solid #333;
+}
+footer a {
+    color: #888;
+    transition: color 0.3s;
+}
+footer a:hover {
+    color: #f2f2f2;
+    text-shadow: 0 0 3px #f2f2f2;
 }
