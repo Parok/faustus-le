@@ -57,7 +57,6 @@ p {
 
 /* Styling for the Entire Content Area */
 .content-area {
-    background-image: url('../images/box-background.webp'); /* Adjust the path if needed */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

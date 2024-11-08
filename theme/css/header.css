@@ -2,6 +2,8 @@
 /* Header */
 /* Header Enhancements */
 .site-header {
+    background-image: url('../images/box-background.webp'); /* Adjust the path if needed */
+    background-size: cover;
     padding: 20px 0;
     background-color: #101010;
     text-align: center;
