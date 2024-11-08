@@ -13,6 +13,10 @@ Description: A dark, atmospheric theme for Faustus Club.
 Version: 1.0
 */
 /* Basic Global Styles */
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: 'Lora', serif;
     color: #ddd;

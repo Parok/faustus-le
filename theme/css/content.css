@@ -35,3 +35,59 @@ p {
     font-family: 'Libre Baskerville', serif;
     color: #d4d4d4;
 }
+/* Styling for the Content Box with Background Image */
+.box {
+    background-image: url('../images/box-background.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-blend-mode: multiply;
+    background-color: rgba(0, 0, 0, 0.75); /* Dark overlay for better readability */
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.6);
+    margin-bottom: 40px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.8);
+}
+
+/* Styling for the Entire Content Area */
+.content-area {
+    background-image: url('../images/box-background.webp'); /* Adjust the path if needed */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-blend-mode: multiply;
+    background-color: rgba(0, 0, 0, 0.8); /* Dark overlay for better readability */
+    padding: 60px 20px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7);
+    margin: 40px auto;
+    max-width: 1000px; /* Set a max width to center the content area */
+}
+
+/* Styling for Inner Elements */
+.post-meta, .post-content, .read-more {
+    color: #f5c000; /* Gothic gold color for text */
+}
+
+.read-more {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 15px;
+    background-color: #d1b76a;
+    color: #111;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.read-more:hover {
+    background-color: #f5c000;
+    color: #000;
+}
