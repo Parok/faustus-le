@@ -39,7 +39,17 @@
     font-size: 3em;
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
 }
+.logo img {
+    max-width: 300px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    transition: transform 0.3s ease;
+}
 
+.logo img:hover {
+    transform: scale(1.05); /* Subtle zoom on hover */
+}
 /* Navigation Styling */
 .main-navigation {
     display: flex;

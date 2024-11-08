@@ -8,16 +8,20 @@
 <body <?php body_class(); ?>>
 <header class="site-header header-background">
     <div class="container">
-        <h1 class="logo"><a href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a></h1>
-        <nav class="main-navigation">
-            <?php
-            wp_nav_menu(array(
-                'theme_location' => 'main-menu',
-                'container' => false,
-                'menu_class' => 'nav-menu'
-            ));
-            ?>
-        </nav>
+    <div class="logo">
+        <a href="<?php echo home_url(); ?>">
+            <img src="<?php echo get_template_directory_uri(); ?>/images/faustus-logo.jpeg" alt="Dr. Faustus Logo">
+        </a>
+    </div>
+    <nav class="main-navigation">
+        <?php
+        wp_nav_menu(array(
+            'theme_location' => 'main-menu',
+            'container' => false,
+            'menu_class' => 'nav-menu'
+        ));
+        ?>
+    </nav>
     </div>
 </header>
 </body>
