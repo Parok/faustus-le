@@ -26,17 +26,40 @@
     font-size: 2.8em;
     text-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
 }
+/* Styling for the Site Header */
+.site-header {
+    position: relative;
+    background: none; /* Keep the background transparent to show the main background image */
+    padding: 60px 20px;
+    margin: 0 auto;
+    max-width: 80%; /* Adjust width to fit the background nicely */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    z-index: 10; /* Ensure it stays above the background */
+}
 
-/* Enhanced Navigation Styling */
+/* Center the Logo */
+.logo {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.logo a {
+    font-family: 'Cinzel Decorative', serif;
+    color: #f5c000;
+    font-size: 3em;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+/* Align Navigation Menu */
 .main-navigation {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 30px;
-    padding: 20px 0;
-    background-color: rgba(0, 0, 0, 0.8); /* Subtle background for contrast */
-    border-bottom: 1px solid rgba(255, 215, 0, 0.2); /* Subtle gold border */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.85); /* Add a subtle background for contrast */
+    padding: 10px 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    margin-top: -20px; /* Adjust to align with the background image */
 }
 
 .nav-menu {
@@ -45,45 +68,22 @@
     gap: 40px;
 }
 
-
-.nav-menu li {
-    position: relative;
-}
-
 .nav-menu li a {
-    font-family: 'Cinzel Decorative', serif; /* Gothic font for a dramatic look */
     color: #d1b76a;
-    text-decoration: none;
     text-transform: uppercase;
+    font-weight: bold;
+    text-decoration: none;
     letter-spacing: 1px;
-    font-size: 1.1em;
-    transition: color 0.3s ease, transform 0.3s ease;
     padding: 5px 10px;
-    display: inline-block;
+    transition: color 0.3s ease;
 }
+
 .nav-menu li a:hover {
-    color: #f5c000; /* Golden color on hover */
-    text-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
-    transform: translateY(-3px); /* Slight lift effect on hover */
-}
-
-/* Add a Gothic Underline on Hover */
-.nav-menu li a::after {
-    content: '';
-    display: block;
-    width: 0;
-    height: 2px;
-    background: #f5c000; /* Golden underline effect */
-    transition: width 0.3s ease;
-    margin-top: 5px;
-}
-
-.nav-menu li a:hover::after {
-    width: 100%;
-}
-
-/* Active Menu Item Styling */
-.nav-menu li.current-menu-item a {
     color: #f5c000;
-    text-shadow: 0 0 8px rgba(255, 215, 0, 0.6);
+    text-shadow: 0 0 5px rgba(255, 215, 0, 0.6);
+}
+
+/* Optional: Fix Background Attachment */
+body {
+    background-attachment: fixed;
 }
