@@ -5,6 +5,11 @@
         gap: 15px;
         margin-top: 20px;
     }
+    .nav-menu {
+        flex-direction: column;
+        gap: 20px;
+    }
+
     .logo a {
         font-size: 1.5em;
     }

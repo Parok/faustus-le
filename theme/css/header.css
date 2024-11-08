@@ -30,3 +30,29 @@
     color: #f5c000;
     text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
 }
+.nav-menu li a:hover {
+    color: #f5c000; /* Golden color on hover */
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.4);
+    transform: translateY(-3px); /* Slight lift effect on hover */
+}
+
+/* Add a Gothic Underline on Hover */
+.nav-menu li a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #f5c000; /* Golden underline effect */
+    transition: width 0.3s ease;
+    margin-top: 5px;
+}
+
+.nav-menu li a:hover::after {
+    width: 100%;
+}
+
+/* Active Menu Item Styling */
+.nav-menu li.current-menu-item a {
+    color: #f5c000;
+    text-shadow: 0 0 8px rgba(255, 215, 0, 0.6);
+}
