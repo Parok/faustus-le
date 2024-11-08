@@ -1,7 +1,7 @@
 /* Navigation Menu Item Styling */
 .nav-menu li {
     position: relative;
-    overflow: hidden; /* Ensure lines don't overflow the element */
+    overflow: hidden; /* Prevent overflow of animated borders */
 }
 
 .nav-menu li a {
@@ -50,6 +50,12 @@
 .nav-menu li a:hover::after {
     width: 100%; /* Bottom border animates from left to right */
     right: 0;
+}
+
+/* Instantly retract lines on hover out */
+.nav-menu li a::before,
+.nav-menu li a::after {
+    transition: width 0s ease-in;
 }
 
 .nav-menu li a:hover {
