@@ -1,6 +1,7 @@
-/* Enhanced Menu Item Animation */
+/* Navigation Menu Item Styling */
 .nav-menu li {
     position: relative;
+    overflow: hidden; /* Ensure lines don't overflow the element */
 }
 
 .nav-menu li a {
@@ -16,23 +17,41 @@
     z-index: 1;
 }
 
-/* Underline animation */
-.nav-menu li a::after {
+/* Top Border Animation */
+.nav-menu li a::before {
     content: '';
     position: absolute;
-    left: 0;
-    bottom: -0.2vh; /* Position just below the text */
+    top: 0;
+    right: 0;
     width: 0;
     height: 2px;
     background-color: #f5c000;
     transition: width 0.4s ease-out;
 }
 
-/* On hover: change color and draw underline */
-.nav-menu li a:hover {
-    color: #f5c000;
+/* Bottom Border Animation */
+.nav-menu li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #f5c000;
+    transition: width 0.4s ease-out;
+}
+
+/* On hover: draw top and bottom lines */
+.nav-menu li a:hover::before {
+    width: 100%; /* Top border animates from right to left */
+    left: 0;
 }
 
 .nav-menu li a:hover::after {
-    width: 100%; /* Draws underline from left to right */
+    width: 100%; /* Bottom border animates from left to right */
+    right: 0;
+}
+
+.nav-menu li a:hover {
+    color: #f5c000; /* Change text color on hover */
 }
