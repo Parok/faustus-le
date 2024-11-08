@@ -17,7 +17,6 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('../images/baroque-overlay.webp');
     background-size: cover;
     background-repeat: no-repeat;
     opacity: 0.08;
@@ -57,14 +56,11 @@ p {
 
 /* Styling for the Entire Content Area */
 .content-area {
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-blend-mode: multiply;
     background-color: rgba(0, 0, 0, 0.8); /* Dark overlay for better readability */
     padding: 60px 20px;
     border-radius: 15px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7);
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
     margin: 40px auto;
     max-width: 1000px; /* Set a max width to center the content area */
 }
