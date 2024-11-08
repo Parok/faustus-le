@@ -61,10 +61,7 @@ h1, h2, h3 {
 
 /* Global Section Background Styling */
 .section {
-    background-image: url('../images/baroque-overlay.webp');
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: center;
+
     padding: 60px 20px;
 }
 
