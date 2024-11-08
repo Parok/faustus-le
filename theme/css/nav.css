@@ -1,0 +1,61 @@
+/* Navigation Menu Item Styling with Dual Line Drawing Animation */
+.nav-menu {
+    list-style: none;
+    display: flex;
+    gap: 40px;
+}
+
+.nav-menu li {
+    position: relative;
+}
+
+.nav-menu li a {
+    color: #d1b76a;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-decoration: none;
+    letter-spacing: 1px;
+    padding: 10px 15px;
+    position: relative;
+    display: inline-block;
+    transition: color 0.3s ease;
+    z-index: 1;
+}
+
+/* Dual Line Drawing Animation */
+.nav-menu li a::before,
+.nav-menu li a::after {
+    content: '';
+    position: absolute;
+    height: 2px;
+    background-color: #f5c000;
+    transition: width 0.4s ease-in-out;
+    z-index: 0;
+}
+
+.nav-menu li a::before {
+    top: 0; /* Top line */
+    right: 0;
+    width: 0;
+}
+
+.nav-menu li a::after {
+    bottom: 0; /* Bottom line */
+    left: 0;
+    width: 0;
+}
+
+/* Hover Effect: Animate lines */
+.nav-menu li a:hover::before {
+    width: 100%;
+    left: 0; /* Draws from right to left */
+}
+
+.nav-menu li a:hover::after {
+    width: 100%;
+    right: 0; /* Draws from left to right */
+}
+
+.nav-menu li a:hover {
+    color: #f5c000; /* Change text color on hover */
+}
