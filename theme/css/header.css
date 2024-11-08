@@ -1,16 +1,16 @@
 /* Header Enhancements */
 .site-header {
     position: relative;
-    background-image: url('../images/box-background.webp'); /* Adjust the path if needed */
+    background-image: url('../images/box-background.webp');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    padding: 60px 20px;
+    padding: 5vh 5vw; /* Responsive padding */
     background-color: #101010;
     text-align: center;
     margin: 0 auto;
-    max-width: 80%; /* Adjust width to fit the background nicely */
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    max-width: 90%;
+    box-shadow: 0 1vh 2vh rgba(0, 0, 0, 0.5);
     z-index: 10;
 }
 
@@ -30,40 +30,76 @@
 /* Logo Styling */
 .logo {
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 3vh;
 }
 
 .logo a {
     font-family: 'Cinzel Decorative', serif;
     color: #f5c000;
-    font-size: 3em;
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+    font-size: 4vw; /* Scalable font size */
+    text-shadow: 0.3vw 0.3vw 1vw rgba(0, 0, 0, 0.8);
+    transition: color 0.3s ease;
 }
+
+/* Logo Image Styling */
 .logo img {
-    max-width: 300px;
+    max-width: 30vw; /* Responsive scaling for different screens */
     height: auto;
     display: block;
     margin: 0 auto;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 .logo img:hover {
-    transform: scale(1.05); /* Subtle zoom on hover */
+    transform: scale(1.1); /* Slight zoom on hover */
+    opacity: 0.9;
 }
+
 /* Navigation Styling */
 .main-navigation {
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: rgba(0, 0, 0, 0.85);
-    padding: 10px 30px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-    margin-top: -20px;
+    padding: 2vh 3vw; /* Responsive padding */
+    border-radius: 1vh;
+    box-shadow: 0 1vh 2vh rgba(0, 0, 0, 0.5);
+    margin-top: -2vh;
 }
 
+/* Responsive Navigation Menu */
+.nav-menu {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3vw;
+}
 
-/* Optional: Fix Background Attachment for Overall Page */
+.nav-menu li {
+    position: relative;
+}
+
+.nav-menu li a {
+    color: #d1b76a;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-decoration: none;
+    letter-spacing: 0.1vw;
+    padding: 1vh 1.5vw;
+    display: inline-block;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.nav-menu li a:hover {
+    color: #f5c000;
+    transform: translateY(-0.2vh);
+}
+
+/* Fix Background Attachment for Overall Page */
 body {
     background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+    font-size: 1rem;
+    line-height: 1.6;
 }
