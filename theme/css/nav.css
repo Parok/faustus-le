@@ -18,7 +18,7 @@
     padding: 10px 15px;
     position: relative;
     display: inline-block;
-    transition: color 0.3s ease;
+    transition: color 0.3s ease-out;
     z-index: 1;
 }
 
@@ -29,7 +29,6 @@
     position: absolute;
     height: 2px;
     background-color: #f5c000;
-    transition: width 0.4s ease-in-out;
     z-index: 0;
 }
 
@@ -37,25 +36,15 @@
     top: 0; /* Top line */
     right: 0;
     width: 0;
+    transition: width 0.4s ease-out;
 }
 
 .nav-menu li a::after {
     bottom: 0; /* Bottom line */
     left: 0;
     width: 0;
+    transition: width 0.4s ease-out;
 }
 
 /* Hover Effect: Animate lines */
-.nav-menu li a:hover::before {
-    width: 100%;
-    left: 0; /* Draws from right to left */
-}
-
-.nav-menu li a:hover::after {
-    width: 100%;
-    right: 0; /* Draws from left to right */
-}
-
-.nav-menu li a:hover {
-    color: #f5c000; /* Change text color on hover */
-}
+.nav-menu li a:
