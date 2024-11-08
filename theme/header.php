@@ -6,18 +6,19 @@
     <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
-<header class="site-header">
-    <div class="header-background">
-        <div class="container">
-            <h1 class="logo"><a href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a></h1>
-            <nav class="main-navigation">
-                <?php wp_nav_menu(array(
-                    'theme_location' => 'main-menu',
-                    'container' => false,
-                    'menu_class' => 'nav-menu'
-                )); ?>
-            </nav>
-        </div>
+<header class="site-header header-background">
+    <div class="container">
+        <h1 class="logo"><a href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a></h1>
+        <nav class="main-navigation">
+            <?php
+            wp_nav_menu(array(
+                'theme_location' => 'main-menu',
+                'container' => false,
+                'menu_class' => 'nav-menu'
+            ));
+            ?>
+        </nav>
     </div>
 </header>
-
+</body>
+</html>
