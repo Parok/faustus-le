@@ -14,21 +14,38 @@
     text-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
 }
 
+/* Enhanced Navigation Styling */
 .main-navigation {
-    margin-top: 15px;
     display: flex;
     justify-content: center;
+    align-items: center;
+    gap: 30px;
+    padding: 20px 0;
+    background-color: rgba(0, 0, 0, 0.8); /* Subtle background for contrast */
+    border-bottom: 1px solid rgba(255, 215, 0, 0.2); /* Subtle gold border */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.nav-menu {
+    list-style: none;
+    display: flex;
     gap: 40px;
 }
 
-.nav-menu li a {
-    color: #d1b76a;
-    transition: color 0.3s ease;
+.nav-menu li {
+    position: relative;
 }
 
-.nav-menu li a:hover {
-    color: #f5c000;
-    text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+.nav-menu li a {
+    font-family: 'Cinzel Decorative', serif; /* Gothic font for a dramatic look */
+    color: #d1b76a;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 1.1em;
+    transition: color 0.3s ease, transform 0.3s ease;
+    padding: 5px 10px;
+    display: inline-block;
 }
 .nav-menu li a:hover {
     color: #f5c000; /* Golden color on hover */
