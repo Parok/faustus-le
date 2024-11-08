@@ -64,7 +64,98 @@
     }
     75% {
         width: 0;
-        height: 100%;
+        height: 100%;/* Navigation Menu Item Styling with Circling Border Animation */
+        .nav-menu {
+            list-style: none;
+            display: flex;
+            gap: 40px;
+        }
+        
+        .nav-menu li {
+            position: relative;
+        }
+        
+        .nav-menu li a {
+            color: #d1b76a;
+            text-transform: uppercase;
+            font-weight: bold;
+            text-decoration: none;
+            letter-spacing: 1px;
+            padding: 10px 20px;
+            position: relative;
+            display: inline-block;
+            transition: color 0.3s ease;
+            z-index: 1;
+        }
+        
+        /* Top and Right Border */
+        .nav-menu li a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 2px;
+            background-color: #f5c000;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-menu li a:hover::before {
+            animation: draw-top-right 0.5s forwards ease-out;
+        }
+        
+        /* Bottom and Left Border */
+        .nav-menu li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 0%;
+            height: 2px;
+            background-color: #f5c000;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-menu li a:hover::after {
+            animation: draw-bottom-left 0.5s forwards ease-out 0.5s;
+        }
+        
+        /* Keyframes for drawing borders */
+        @keyframes draw-top-right {
+            0% {
+                width: 0;
+                height: 2px;
+            }
+            50% {
+                width: 100%;
+                height: 2px;
+            }
+            100% {
+                width: 100%;
+                height: 100%;
+            }
+        }
+        
+        @keyframes draw-bottom-left {
+            0% {
+                width: 0;
+                height: 2px;
+            }
+            50% {
+                width: 100%;
+                height: 2px;
+            }
+            100% {
+                width: 100%;
+                height: 100%;
+            }
+        }
+        
+        /* Change text color on hover */
+        .nav-menu li a:hover {
+            color: #f5c000;
+        }
+        
         top: 0;
         left: 100%;
     }
