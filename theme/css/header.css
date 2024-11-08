@@ -1,7 +1,7 @@
-/* Consolidated Header Styles */
+/* Header Enhancements */
 .site-header {
     position: relative;
-    background-image: url('../images/box-background.webp'); /* Ensure path is correct */
+    background-image: url('../images/box-background.webp'); /* Adjust the path if needed */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -52,10 +52,15 @@
     margin-top: -20px;
 }
 
+/* Navigation Menu Item Styling with Underline Animation */
 .nav-menu {
     list-style: none;
     display: flex;
     gap: 40px;
+}
+
+.nav-menu li {
+    position: relative;
 }
 
 .nav-menu li a {
@@ -65,15 +70,31 @@
     text-decoration: none;
     letter-spacing: 1px;
     padding: 5px 10px;
+    position: relative;
+    display: inline-block;
     transition: color 0.3s ease;
 }
 
-.nav-menu li a:hover {
-    color: #f5c000;
-    text-shadow: 0 0 5px rgba(255, 215, 0, 0.6);
+.nav-menu li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px; /* Adjust this to control the distance from the text */
+    width: 0%;
+    height: 2px;
+    background-color: #f5c000; /* Yellow color for the underline */
+    transition: width 0.4s ease-in-out;
 }
 
-/* Fix Background Attachment */
+.nav-menu li a:hover {
+    color: #f5c000; /* Change text color on hover */
+}
+
+.nav-menu li a:hover::after {
+    width: 100%;
+}
+
+/* Optional: Fix Background Attachment for Overall Page */
 body {
     background-attachment: fixed;
 }
