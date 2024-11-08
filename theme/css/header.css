@@ -5,7 +5,7 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    padding: 5vh 5vw;
+    padding: 5vh 5vw; /* Responsive padding */
     background-color: #101010;
     text-align: center;
     margin: 0 auto;
@@ -33,9 +33,17 @@
     margin-bottom: 3vh;
 }
 
+.logo a {
+    font-family: 'Cinzel Decorative', serif;
+    color: #f5c000;
+    font-size: 4vw; /* Scalable font size */
+    text-shadow: 0.3vw 0.3vw 1vw rgba(0, 0, 0, 0.8);
+    transition: color 0.3s ease;
+}
+
+/* Logo Image Styling */
 .logo img {
-    max-width: 100%;
-    width: 40vw;
+    max-width: 30vw; /* Responsive scaling for different screens */
     height: auto;
     display: block;
     margin: 0 auto;
@@ -43,7 +51,7 @@
 }
 
 .logo img:hover {
-    transform: scale(1.05);
+    transform: scale(1.1); /* Slight zoom on hover */
     opacity: 0.9;
 }
 
@@ -53,7 +61,7 @@
     justify-content: center;
     align-items: center;
     background-color: rgba(0, 0, 0, 0.85);
-    padding: 2vh 3vw;
+    padding: 2vh 3vw; /* Responsive padding */
     border-radius: 1vh;
     box-shadow: 0 1vh 2vh rgba(0, 0, 0, 0.5);
     margin-top: -2vh;
@@ -64,8 +72,7 @@
     list-style: none;
     display: flex;
     flex-wrap: wrap;
-    gap: 2vw;
-    justify-content: center;
+    gap: 3vw;
 }
 
 .nav-menu li {
@@ -78,7 +85,7 @@
     font-weight: bold;
     text-decoration: none;
     letter-spacing: 0.1vw;
-    padding: 1vh 2vw;
+    padding: 1vh 1.5vw;
     display: inline-block;
     transition: color 0.3s ease, transform 0.3s ease;
 }
@@ -88,42 +95,11 @@
     transform: translateY(-0.2vh);
 }
 
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-    .site-header {
-        padding: 4vh 4vw;
-    }
-    .logo img {
-        width: 60vw;
-        max-width: 80%;
-    }
-    .main-navigation {
-        flex-direction: column;
-        padding: 3vh 5vw;
-    }
-    .nav-menu {
-        flex-direction: column;
-        gap: 2vh;
-    }
-    .nav-menu li a {
-        font-size: 4vw;
-        padding: 1.5vh 2vw;
-    }
-}
-
-@media (max-width: 480px) {
-    .site-header {
-        padding: 4vh 5vw;
-    }
-    .logo img {
-        width: 80vw;
-        max-width: 90%;
-    }
-    .nav-menu {
-        gap: 4vh;
-    }
-    .nav-menu li a {
-        font-size: 5vw;
-        padding: 2vh 3vw;
-    }
+/* Fix Background Attachment for Overall Page */
+body {
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+    font-size: 1rem;
+    line-height: 1.6;
 }
