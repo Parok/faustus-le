@@ -1,14 +1,20 @@
-
-/* Header */
-/* Header Enhancements */
+/* Consolidated Header Styles */
 .site-header {
-    background-image: url('../images/box-background.webp'); /* Adjust the path if needed */
+    position: relative;
+    background-image: url('../images/box-background.webp'); /* Ensure path is correct */
     background-size: cover;
-    padding: 20px 0;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 60px 20px;
     background-color: #101010;
     text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+    margin: 0 auto;
+    max-width: 80%; /* Adjust width to fit the background nicely */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    z-index: 10;
 }
+
+/* Gradient Overlay for Header */
 .site-header::before {
     content: '';
     position: absolute;
@@ -21,23 +27,7 @@
     pointer-events: none;
 }
 
-.logo a {
-    color: #f5c000;
-    font-size: 2.8em;
-    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
-}
-/* Styling for the Site Header */
-.site-header {
-    position: relative;
-    background: none; /* Keep the background transparent to show the main background image */
-    padding: 60px 20px;
-    margin: 0 auto;
-    max-width: 80%; /* Adjust width to fit the background nicely */
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
-    z-index: 10; /* Ensure it stays above the background */
-}
-
-/* Center the Logo */
+/* Logo Styling */
 .logo {
     text-align: center;
     margin-bottom: 30px;
@@ -50,16 +40,16 @@
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
 }
 
-/* Align Navigation Menu */
+/* Navigation Styling */
 .main-navigation {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgba(0, 0, 0, 0.85); /* Add a subtle background for contrast */
+    background-color: rgba(0, 0, 0, 0.85);
     padding: 10px 30px;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-    margin-top: -20px; /* Adjust to align with the background image */
+    margin-top: -20px;
 }
 
 .nav-menu {
@@ -83,7 +73,7 @@
     text-shadow: 0 0 5px rgba(255, 215, 0, 0.6);
 }
 
-/* Optional: Fix Background Attachment */
+/* Fix Background Attachment */
 body {
     background-attachment: fixed;
 }
