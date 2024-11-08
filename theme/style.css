@@ -13,20 +13,43 @@ Description: A dark, atmospheric theme for Faustus Club.
 Version: 1.0
 */
 /* Global Styling for Dark Faustus Theme */
+/* Basic Global Styles */
 body {
     font-family: 'Lora', serif;
-    color: #e0e0e0;
-    background-color: #121212; /* Dark, but softened for readability */
-    background-image: url('images/dark-parchment.jpg'); /* Subtle texture to evoke parchment */
-    background-size: cover;
-    background-attachment: fixed;
+    color: #ddd;
+    background-color: #0b0b0b;
     line-height: 1.8;
+    overflow-x: hidden;
 }
+
 a {
-    color: #a60000; /* Blood red, like sealing wax or old ink */
+    color: #c49b3a; /* Golden accent color */
     text-decoration: none;
-    transition: color 0.3s;
+    transition: color 0.3s ease;
 }
+
 a:hover {
-    color: #d4af37; /* Muted gold on hover, symbolizing temptation */
+    color: #f5c000;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
 }
+
+/* Content Boxes (General Section Styling) */
+.box {
+    background: rgba(0, 0, 0, 0.75);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
+    margin-bottom: 40px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7);
+}
+
+/* Typography for Headings */
+h1, h2, h3 {
+    font-family: 'Cinzel Decorative', serif;
+    color: #f5c000;
+    text-shadow: 1px 1
