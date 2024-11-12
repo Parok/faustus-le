@@ -8,11 +8,11 @@
 <body <?php body_class(); ?>>
 <header class="site-header header-background">
     <div class="container">
-    <div class="logo">
-        <a href="<?php echo home_url(); ?>">
-            <img src="<?php echo get_template_directory_uri(); ?>/images/faustus-logo.jpeg" alt="Dr. Faustus Logo">
-        </a>
+    <div class="logo-container">
+        <img src="<?php echo get_template_directory_uri(); ?>/images/faustus-logo.webp" alt="Faustus Logo" class="logo">
+        <div class="fog-overlay"></div>
     </div>
+    
     <nav class="main-navigation">
         <?php
         wp_nav_menu(array(

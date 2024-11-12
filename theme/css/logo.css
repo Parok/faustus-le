@@ -1,0 +1,32 @@
+/* Container für Logo und Nebel */
+.logo-container {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+}
+
+.logo {
+    display: block;
+    width: 100%;
+    height: auto;
+    z-index: 1;
+}
+
+.fog-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background: radial-gradient(circle, rgba(0, 0, 0, 0.2) 20%, transparent 60%);
+    opacity: 0.5;
+    z-index: 2;
+    animation: fog-animation 10s infinite;
+}
+
+@keyframes fog-animation {
+    0% { transform: translate(-20%, -20%) scale(1.2); opacity: 0.4; }
+    50% { transform: translate(10%, 10%) scale(1.1); opacity: 0.6; }
+    100% { transform: translate(-10%, -10%) scale(1.3); opacity: 0.5; }
+}

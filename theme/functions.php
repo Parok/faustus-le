@@ -1,14 +1,13 @@
 <?php
-// Enqueue the main stylesheet
 function dr_faustus_enqueue_styles() {
     wp_enqueue_style('dr-faustus-style', get_stylesheet_uri());
-    
+
     wp_enqueue_style('faustus-header', get_template_directory_uri() . '/css/header.css');
     wp_enqueue_style('faustus-nav', get_template_directory_uri() . '/css/nav.css');
-
     wp_enqueue_style('faustus-footer', get_template_directory_uri() . '/css/footer.css');
     wp_enqueue_style('faustus-content', get_template_directory_uri() . '/css/content.css');
     wp_enqueue_style('faustus-responsive', get_template_directory_uri() . '/css/responsive.css');
+    wp_enqueue_style('faustus-logo', get_template_directory_uri() . '/css/logo.css');
 }
 add_action('wp_enqueue_scripts', 'dr_faustus_enqueue_styles');
 
