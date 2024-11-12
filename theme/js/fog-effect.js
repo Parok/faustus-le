@@ -23,16 +23,17 @@ document.addEventListener('DOMContentLoaded', function () {
         console.log("Animating fog");
         const cells = document.querySelectorAll('.fog-cell');
         cells.forEach((cell, index) => {
-            const randomOpacity = Math.random() * 0.4 + 0.3; // Random opacity between 0.3 and 0.7
-            const randomDelay = Math.random() * 3000; // Increased delay for smoother animation
+            const randomOpacity = Math.random() * 0.5 + 0.3; // Opacity between 0.3 and 0.8
+            const randomDelay = Math.random() * 1000; // Shorter delay for faster changes
             setTimeout(() => {
                 cell.style.opacity = randomOpacity;
                 setTimeout(() => {
                     cell.style.opacity = 0;
-                }, 4000); // Fade out after 4 seconds for a smoother transition
+                }, 2000); // Fade out after 2 seconds
             }, randomDelay);
         });
     }
+    
     
     
     setInterval(animateFog, 3000);
