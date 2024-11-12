@@ -1,15 +1,18 @@
 <?php
-function dr_faustus_enqueue_styles() {
+function dr_faustus_enqueue_assets() {
+    // Enqueue CSS files
     wp_enqueue_style('dr-faustus-style', get_stylesheet_uri());
-
     wp_enqueue_style('faustus-header', get_template_directory_uri() . '/css/header.css');
     wp_enqueue_style('faustus-nav', get_template_directory_uri() . '/css/nav.css');
     wp_enqueue_style('faustus-footer', get_template_directory_uri() . '/css/footer.css');
     wp_enqueue_style('faustus-content', get_template_directory_uri() . '/css/content.css');
     wp_enqueue_style('faustus-responsive', get_template_directory_uri() . '/css/responsive.css');
     wp_enqueue_style('faustus-logo', get_template_directory_uri() . '/css/logo.css');
+    
+    // Enqueue JavaScript file
+    wp_enqueue_script('fog-effect', get_template_directory_uri() . '/js/fog-effect.js', array(), null, true);
 }
-add_action('wp_enqueue_scripts', 'dr_faustus_enqueue_styles');
+add_action('wp_enqueue_scripts', 'dr_faustus_enqueue_assets');
 
 
 // Register navigation menu
@@ -26,10 +29,5 @@ function dr_faustus_theme_setup() {
     add_theme_support('html5', array('search-form', 'comment-form', 'comment-list', 'gallery', 'caption'));
 }
 add_action('after_setup_theme', 'dr_faustus_theme_setup');
-
-function enqueue_fog_script() {
-    wp_enqueue_script('fog-effect', get_template_directory_uri() . '/js/fog-effect.js', array(), null, true);
-}
-add_action('wp_enqueue_scripts', 'enqueue_fog_script');
 
 ?>
