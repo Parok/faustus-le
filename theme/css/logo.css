@@ -3,6 +3,7 @@
     position: relative;
     display: inline-block;
     overflow: hidden;
+    background-color: transparent;
 }
 
 .logo {
@@ -21,9 +22,10 @@
     pointer-events: none;
     background: radial-gradient(circle, rgba(0, 0, 0, 0.2) 20%, transparent 60%);
     opacity: 0.5;
-    z-index: 2;
-    animation: fog-animation 10s infinite;
+    z-index: 999;
+    animation: fog-animation 12s infinite;
 }
+
 
 @keyframes fog-animation {
     0% { transform: translate(-20%, -20%) scale(1.2); opacity: 0.4; }
