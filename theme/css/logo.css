@@ -1,39 +1,33 @@
-/* Container für Logo und Nebel */
+/* Container for Logo and Fog Grid */
 .logo-container {
     position: relative;
     display: inline-block;
     overflow: hidden;
-    background-color: transparent;
 }
 
 .logo {
     display: block;
-    width: 100%;
+    max-width: 100%;
     height: auto;
     z-index: 1;
 }
 
-.fog-overlay {
+/* Fog Grid Overlay */
+.fog-grid {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(10, 1fr);
     pointer-events: none;
-    background: radial-gradient(circle, 
-        rgba(0, 0, 0, 0.5) 10%, 
-        rgba(0, 0, 0, 0.3) 30%, 
-        rgba(0, 0, 0, 0.1) 70%, 
-        rgba(0, 0, 0, 0) 100%
-    );
-    opacity: 0.6;
-    z-index: 999;
-    animation: fog-animation 15s infinite;
+    z-index: 2;
 }
 
-
-@keyframes fog-animation {
-    0% { transform: translate(-10%, -10%) scale(1.2); }
-    50% { transform: translate(15%, 15%) scale(1.1); }
-    100% { transform: translate(-10%, -10%) scale(1.3); }
+.fog-cell {
+    background-color: rgba(0, 0, 0, 0.15);
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
 }
