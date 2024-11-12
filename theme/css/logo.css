@@ -20,7 +20,7 @@
     width: 100%;
     height: 100%;
     pointer-events: none;
-    background: radial-gradient(circle, rgba(0, 0, 0, 0.2) 20%, transparent 60%);
+    background: rgba(0, 0, 0, 0.2); /* Teste mit einem einfachen halbtransparenten Hintergrund */
     opacity: 0.5;
     z-index: 999;
     animation: fog-animation 12s infinite;
