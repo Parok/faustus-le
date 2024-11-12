@@ -1,5 +1,15 @@
+console.log("Fog effect script loaded!");
+
 document.addEventListener('DOMContentLoaded', function () {
+    console.log("Fog grid initialization started.");
+
     const fogGrid = document.querySelector('.fog-grid');
+    console.log("Fog grid element found:", fogGrid);
+
+    if (!fogGrid) {
+        console.error("Fog grid not found. Exiting script.");
+        return;
+    }
 
     const numCells = 100;
     for (let i = 0; i < numCells; i++) {
@@ -7,8 +17,10 @@ document.addEventListener('DOMContentLoaded', function () {
         cell.classList.add('fog-cell');
         fogGrid.appendChild(cell);
     }
+    console.log("Fog cells created.");
 
     function animateFog() {
+        console.log("Animating fog");
         const cells = document.querySelectorAll('.fog-cell');
         cells.forEach(cell => {
             const randomOpacity = Math.random() * 0.3 + 0.1;
@@ -23,4 +35,5 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     setInterval(animateFog, 3000);
+    console.log("Fog animation started.");
 });
