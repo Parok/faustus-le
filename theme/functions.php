@@ -26,4 +26,10 @@ function dr_faustus_theme_setup() {
     add_theme_support('html5', array('search-form', 'comment-form', 'comment-list', 'gallery', 'caption'));
 }
 add_action('after_setup_theme', 'dr_faustus_theme_setup');
+
+function enqueue_fog_script() {
+    wp_enqueue_script('fog-effect', get_template_directory_uri() . '/js/fog-effect.js', array(), null, true);
+}
+add_action('wp_enqueue_scripts', 'enqueue_fog_script');
+
 ?>
