@@ -27,33 +27,6 @@
     pointer-events: none;
 }
 
-/* Logo Styling */
-.logo {
-    text-align: center;
-    margin-bottom: 3vh;
-}
-
-.logo a {
-    font-family: 'Cinzel Decorative', serif;
-    color: #f5c000;
-    font-size: 4vw; /* Scalable font size */
-    text-shadow: 0.3vw 0.3vw 1vw rgba(0, 0, 0, 0.8);
-    transition: color 0.3s ease;
-}
-
-/* Logo Image Styling */
-.logo img {
-    max-width: 30vw; /* Responsive scaling for different screens */
-    height: auto;
-    display: block;
-    margin: 0 auto;
-    transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-.logo img:hover {
-    transform: scale(1.1); /* Slight zoom on hover */
-    opacity: 0.9;
-}
 
 /* Navigation Styling */
 .main-navigation {
