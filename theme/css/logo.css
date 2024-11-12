@@ -14,21 +14,22 @@
 
 /* Fog Grid Overlay */
 .fog-grid {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr); /* Fewer columns for larger cells */
+    grid-template-rows: repeat(8, 1fr); /* Adjust rows as needed */
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    display: grid;
-    grid-template-columns: repeat(10, 1fr);
-    grid-template-rows: repeat(10, 1fr);
     pointer-events: none;
-    z-index: 9999; /* Increase z-index to ensure it's on top */
+    z-index: 9999;
 }
 
 .fog-cell {
-    background-color: rgba(0, 0, 0, 0.5); /* Increased darkness for better contrast */
+    background-color: rgba(255, 255, 255, 0.2); /* Light white mist */
     opacity: 0;
     transition: opacity 2s ease-in-out;
+    pointer-events: none; /* Prevent interaction */
 }
 
