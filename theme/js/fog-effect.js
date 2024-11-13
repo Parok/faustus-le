@@ -1,4 +1,3 @@
-console.log("Fog effect script with Perlin noise loaded!");
 
 document.addEventListener('DOMContentLoaded', function () {
     const fogCanvas = document.getElementById('fogCanvas');
@@ -9,12 +8,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const ctx = fogCanvas.getContext('2d');
     const simplex = new SimplexNoise();
-    const pointSize = 2; // Size of each point
-    const zoom = 1.5; // Zoom factor for Perlin noise
+    const pointSize = 3; // Adjusted point size for better visibility
+    const zoom = 0.5; // Adjusted zoom factor for a smoother fog effect
 
     function resizeCanvas() {
-        fogCanvas.width = fogCanvas.offsetWidth;
-        fogCanvas.height = fogCanvas.offsetHeight;
+        fogCanvas.width = window.innerWidth;
+        fogCanvas.height = window.innerHeight;
     }
 
     function drawFog() {
@@ -25,15 +24,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
         ctx.clearRect(0, 0, gridWidth, gridHeight);
 
-        const time = Date.now() * 0.00035; // Adjusted speed for more visible change
+        const time = Date.now() * 0.0002; // Adjust speed for smoother movement
 
         for (let y = 0; y < numRows; y++) {
             for (let x = 0; x < numCols; x++) {
                 const noiseValue = simplex.noise3D(x * zoom, y * zoom, time);
                 const opacity = (noiseValue + 1) / 2;
-                const posX = x * pointSize + Math.sin(time + x) * 5; // Dynamic X coordinate
-                const posY = y * pointSize + Math.cos(time + y) * 5; // Dynamic Y coordinate
-                ctx.fillStyle = `rgba(255, 255, 255, ${opacity * 0.5 + 0.1})`; // Increase range for better visibility
+                const posX = x * pointSize;
+                const posY = y * pointSize;
+                ctx.fillStyle = `rgba(255, 255, 255, ${opacity * 0.2 + 0.05})`; // Softer opacity range
                 ctx.beginPath();
                 ctx.arc(posX, posY, pointSize / 2, 0, Math.PI * 2);
                 ctx.fill();
@@ -43,11 +42,16 @@ document.addEventListener('DOMContentLoaded', function () {
         requestAnimationFrame(drawFog);
     }
 
+    // Initialize canvas and fog effect
     resizeCanvas();
     drawFog();
 
+    // Resize handling with debouncing
+    let resizeTimeout;
     window.addEventListener('resize', () => {
-        resizeCanvas();
-        drawFog();
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(() => {
+            resizeCanvas();
+        }, 100);
     });
 });
