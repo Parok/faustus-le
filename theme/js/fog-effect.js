@@ -1,6 +1,3 @@
-const { from } = require("form-data");
-const { formatExecError } = require("jest-message-util");
-
 console.log("Fog effect script with Perlin noise loaded!");
 
 document.addEventListener('DOMContentLoaded', function () {
