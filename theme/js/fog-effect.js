@@ -1,5 +1,3 @@
-console.log("Fog effect script with Perlin noise loaded!");
-
 document.addEventListener('DOMContentLoaded', function () {
     const fogGrid = document.querySelector('.fog-grid');
     if (!fogGrid) {
@@ -8,15 +6,14 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     const simplex = new SimplexNoise();
-    console.log("SimplexNoise object:", simplex);
 
     function createFogCells() {
         fogGrid.innerHTML = '';
         const gridWidth = fogGrid.offsetWidth;
         const gridHeight = fogGrid.offsetHeight;
-        const cellSize = 15;
-        const numCols = Math.ceil(gridWidth / cellSize);
-        const numRows = Math.ceil(gridHeight / cellSize);
+        const cellSize = 20; // Try smaller increments here for smoother results
+        const numCols = Math.floor(gridWidth / cellSize);
+        const numRows = Math.floor(gridHeight / cellSize);
         const totalCells = numCols * numRows;
 
         fogGrid.style.gridTemplateColumns = `repeat(${numCols}, 1fr)`;
@@ -27,36 +24,26 @@ document.addEventListener('DOMContentLoaded', function () {
             cell.classList.add('fog-cell');
             fogGrid.appendChild(cell);
         }
-
-        console.log(`Created ${totalCells} fog cells.`);
-        return { numCols, numRows };
     }
-
-    const { numCols, numRows } = createFogCells();
-
-    let lastTime = 0;
 
     function animateFog() {
         const cells = document.querySelectorAll('.fog-cell');
-        const time = Date.now() * 0.0005; // Adjusted speed for more visible change
-        console.log("Animating fog at time:", time); // Add this line
-    
+        const time = Date.now() * 0.0002; // Adjust animation speed
+
         cells.forEach((cell, index) => {
-            const x = index % Math.ceil(fogGrid.offsetWidth / 25);
-            const y = Math.floor(index / Math.ceil(fogGrid.offsetWidth / 25));
+            const x = index % Math.floor(fogGrid.offsetWidth / 20);
+            const y = Math.floor(index / Math.floor(fogGrid.offsetWidth / 20));
             const noiseValue = simplex.noise3D(x * 0.1, y * 0.1, time);
-            const opacity = (noiseValue + 1) / 2;
-            cell.style.opacity = opacity * 0.8 + 0.2; // Increase range for better visibility
-
+            const opacity = (noiseValue + 1) / 2; // Normalize to [0, 1]
+            cell.style.opacity = opacity * 0.7 + 0.2; // Adjust opacity range
         });
-    
-        requestAnimationFrame(animateFog);
     }
-    
 
-    animateFog();
+    createFogCells();
+    setInterval(animateFog, 100); // Adjust for smoother animation
 
     window.addEventListener('resize', () => {
         createFogCells();
+        animateFog();
     });
 });
