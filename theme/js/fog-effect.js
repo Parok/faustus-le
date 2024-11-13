@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const simplex = new SimplexNoise();
     console.log("SimplexNoise object:", simplex);
-    const cellSize = 35;
+    const cellSize = 25;
 
     function createFogCells() {
         fogGrid.innerHTML = '';
