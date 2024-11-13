@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const simplex = new SimplexNoise();
     console.log("SimplexNoise object:", simplex);
-    const cellSize = 20;
+    const cellSize = 10;
 
     function createFogCells() {
         fogGrid.innerHTML = '';
@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function animateFog() {
         const cells = document.querySelectorAll('.fog-cell');
-        const time = Date.now() * 0.0002; // Adjusted speed for more visible change
+        const time = Date.now() * 0.00035; // Adjusted speed for more visible change
         console.log("Animating fog at time:", time); // Add this line
     
         cells.forEach((cell, index) => {
