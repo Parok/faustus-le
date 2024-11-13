@@ -8,6 +8,7 @@
 <body <?php body_class(); ?>>
 <header class="site-header header-background">
     <div class="container">
+
         <div class="logo-container">
             <img src="<?php echo get_template_directory_uri(); ?>/images/faustus-logo.jpeg" alt="Faustus Logo" class="logo">
             <div class="fog-grid"></div>
