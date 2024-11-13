@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function () {
         fogGrid.innerHTML = '';
         const gridWidth = fogGrid.offsetWidth;
         const gridHeight = fogGrid.offsetHeight;
-        const cellSize = 25;
+        const cellSize = 20;
         const numCols = Math.ceil(gridWidth / cellSize);
         const numRows = Math.ceil(gridHeight / cellSize);
         const totalCells = numCols * numRows;
