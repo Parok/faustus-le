@@ -9,12 +9,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const simplex = new SimplexNoise();
     console.log("SimplexNoise object:", simplex);
+    const cellSize = 20;
 
     function createFogCells() {
         fogGrid.innerHTML = '';
         const gridWidth = fogGrid.offsetWidth;
         const gridHeight = fogGrid.offsetHeight;
-        const cellSize = 20;
         const numCols = Math.ceil(gridWidth / cellSize);
         const numRows = Math.ceil(gridHeight / cellSize);
         const totalCells = numCols * numRows;
@@ -42,8 +42,8 @@ document.addEventListener('DOMContentLoaded', function () {
         console.log("Animating fog at time:", time); // Add this line
     
         cells.forEach((cell, index) => {
-            const x = index % Math.ceil(fogGrid.offsetWidth / 25);
-            const y = Math.floor(index / Math.ceil(fogGrid.offsetWidth / 25));
+            const x = index % Math.ceil(fogGrid.offsetWidth / cellSize);
+            const y = Math.floor(index / Math.ceil(fogGrid.offsetWidth / cellSize));
             const noiseValue = simplex.noise3D(x * 0.1, y * 0.1, time);
             const opacity = (noiseValue + 1) / 2;
             cell.style.opacity = opacity * 0.8 + 0.2; // Increase range for better visibility
