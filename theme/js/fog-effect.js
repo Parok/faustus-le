@@ -10,11 +10,12 @@ document.addEventListener('DOMContentLoaded', function () {
     const simplex = new SimplexNoise();
     console.log("SimplexNoise object:", simplex);
 
+    // Function to create fog cells
     function createFogCells() {
         fogGrid.innerHTML = '';
         const gridWidth = fogGrid.offsetWidth;
         const gridHeight = fogGrid.offsetHeight;
-        const cellSize = 35;
+        const cellSize = 25; // Adjust for density
         const numCols = Math.ceil(gridWidth / cellSize);
         const numRows = Math.ceil(gridHeight / cellSize);
         const totalCells = numCols * numRows;
@@ -32,30 +33,30 @@ document.addEventListener('DOMContentLoaded', function () {
         return { numCols, numRows };
     }
 
-    const { numCols, numRows } = createFogCells();
+    // Create cells and get grid dimensions
+    let { numCols, numRows } = createFogCells();
 
-    let lastTime = 0;
-
-    
+    // Animation function with requestAnimationFrame
     function animateFog() {
         const cells = document.querySelectorAll('.fog-cell');
-        const time = Date.now() * 0.0002; // Adjusted speed for smoother animation
-    
+        const time = Date.now() * 0.0002; // Adjust for smoother animation
+
         cells.forEach((cell, index) => {
             const x = index % numCols;
             const y = Math.floor(index / numCols);
             const noiseValue = simplex.noise3D(x * 0.1, y * 0.1, time);
-            const opacity = (noiseValue + 1) / 2;
+            const opacity = (noiseValue + 1) / 2; // Normalize to [0, 1]
             cell.style.opacity = opacity * 0.8 + 0.2;
         });
-    }
-    
-    // Run the animation every 100 milliseconds
-    setInterval(animateFog, 100);
-    
-    animateFog();
 
+        requestAnimationFrame(animateFog); // Continue animation
+    }
+
+    // Start the animation
+    requestAnimationFrame(animateFog);
+
+    // Handle window resize
     window.addEventListener('resize', () => {
-        createFogCells();
+        ({ numCols, numRows } = createFogCells()); // Recreate cells on resize
     });
 });
