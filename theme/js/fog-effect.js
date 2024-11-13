@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const ctx = fogCanvas.getContext('2d');
     const simplex = new SimplexNoise();
-    const cellSize = 15;
+    const pointSize = 2; // Size of each point
 
     function resizeCanvas() {
         fogCanvas.width = fogCanvas.offsetWidth;
@@ -19,8 +19,8 @@ document.addEventListener('DOMContentLoaded', function () {
     function drawFog() {
         const gridWidth = fogCanvas.width;
         const gridHeight = fogCanvas.height;
-        const numCols = Math.ceil(gridWidth / cellSize);
-        const numRows = Math.ceil(gridHeight / cellSize);
+        const numCols = Math.ceil(gridWidth / pointSize);
+        const numRows = Math.ceil(gridHeight / pointSize);
 
         ctx.clearRect(0, 0, gridWidth, gridHeight);
 
@@ -31,7 +31,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 const noiseValue = simplex.noise3D(x * 0.05, y * 0.05, time);
                 const opacity = (noiseValue + 1) / 2;
                 ctx.fillStyle = `rgba(255, 255, 255, ${opacity * 0.5 + 0.1})`; // Increase range for better visibility
-                ctx.fillRect(x * cellSize, y * cellSize, cellSize, cellSize);
+                ctx.beginPath();
+                ctx.arc(x * pointSize, y * pointSize, pointSize / 2, 0, Math.PI * 2);
+                ctx.fill();
             }
         }
 
