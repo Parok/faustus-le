@@ -23,13 +23,11 @@
     position: absolute;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
     width: 100%;
     height: 100%;
     display: grid;
-    grid-template-columns: repeat(40, 1fr); /* Increase to 40 columns */
-    grid-template-rows: repeat(40, minmax(0, 1fr)); /* Increase to 40 rows */
+    grid-auto-rows: 10px; /* Fixed height for rows */
+    grid-auto-columns: 10px; /* Fixed width for columns */
     align-items: stretch;
     justify-items: stretch;
     pointer-events: none;
