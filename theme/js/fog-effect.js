@@ -1,5 +1,3 @@
-console.log("Fog effect script with Perlin noise loaded!");
-
 document.addEventListener('DOMContentLoaded', function () {
     const fogCanvas = document.getElementById('fogCanvas');
     if (!fogCanvas) {
@@ -8,57 +6,44 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     const ctx = fogCanvas.getContext('2d');
-    const simplex = new SimplexNoise(); // Make sure SimplexNoise is imported
-    const pointSize = 3; // Adjusted point size for better visibility
-    const zoom = 0.3; // Adjust zoom factor for smoother fog effect
+    const simplex = new SimplexNoise();
+    const zoom = 0.3; // Adjust zoom for smoother fog effect
 
-    // Function to resize the canvas
     function resizeCanvas() {
         fogCanvas.width = window.innerWidth;
         fogCanvas.height = window.innerHeight;
     }
 
-    // Main function to draw the fog effect
     function drawFog() {
-        const gridWidth = fogCanvas.width;
-        const gridHeight = fogCanvas.height;
-        const numCols = Math.ceil(gridWidth / pointSize);
-        const numRows = Math.ceil(gridHeight / pointSize);
+        const width = fogCanvas.width;
+        const height = fogCanvas.height;
+        const imageData = ctx.createImageData(width, height);
+        const data = imageData.data;
 
-        // Clear the canvas before each frame
-        ctx.clearRect(0, 0, gridWidth, gridHeight);
+        const time = Date.now() * 0.0002;
 
-        const time = Date.now() * 0.0002; // Adjust speed for smoother movement
-
-        // Loop through each point on the grid
-        for (let y = 0; y < numRows; y++) {
-            for (let x = 0; x < numCols; x++) {
-                // Calculate the noise value for each point
+        for (let y = 0; y < height; y++) {
+            for (let x = 0; x < width; x++) {
+                const index = (y * width + x) * 4;
                 const noiseValue = simplex.noise3D(x * zoom, y * zoom, time);
-                const opacity = (noiseValue + 1) / 2;
-                const posX = x * pointSize;
-                const posY = y * pointSize;
+                const opacity = (noiseValue + 1) / 2 * 0.3; // Adjust opacity range
 
-                // Draw a small rectangle with varying opacity based on noise value
-                ctx.fillStyle = `rgba(255, 255, 255, ${opacity * 0.2 + 0.05})`;
-                ctx.fillRect(posX, posY, pointSize, pointSize);
+                // Set pixel color to white with varying opacity
+                data[index] = 255;       // Red
+                data[index + 1] = 255;   // Green
+                data[index + 2] = 255;   // Blue
+                data[index + 3] = Math.floor(opacity * 255); // Alpha
             }
         }
 
-        // Request the next frame
+        ctx.putImageData(imageData, 0, 0);
         requestAnimationFrame(drawFog);
     }
 
-    // Initialize canvas and start drawing the fog effect
     resizeCanvas();
     drawFog();
 
-    // Add a debounced resize event listener
-    let resizeTimeout;
     window.addEventListener('resize', () => {
-        clearTimeout(resizeTimeout);
-        resizeTimeout = setTimeout(() => {
-            resizeCanvas();
-        }, 200);
+        resizeCanvas();
     });
 });
