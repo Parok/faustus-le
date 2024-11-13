@@ -15,13 +15,17 @@ document.addEventListener('DOMContentLoaded', function () {
         const gridHeight = fogGrid.offsetHeight;
         console.log(`Fog grid size: ${gridWidth}x${gridHeight}`);
 
-        // Define the size of each cell
-        const cellSize = 30;
+        // Dynamically adjust the cell size for better coverage
+        const cellSize = 25; // Adjust this value to see if coverage improves
         const numCols = Math.ceil(gridWidth / cellSize);
         const numRows = Math.ceil(gridHeight / cellSize);
         const totalCells = numCols * numRows;
 
         console.log(`Generating ${totalCells} fog cells...`);
+        
+        fogGrid.style.gridTemplateColumns = `repeat(${numCols}, 1fr)`;
+        fogGrid.style.gridTemplateRows = `repeat(${numRows}, 1fr)`;
+
         for (let i = 0; i < totalCells; i++) {
             const cell = document.createElement('div');
             cell.classList.add('fog-cell');
@@ -34,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const cells = document.querySelectorAll('.fog-cell');
         cells.forEach((cell) => {
             const randomOpacity = Math.random() * 0.5 + 0.3;
-            const randomDelay = Math.random() * 1000; // Shorter delay for smoother animation
+            const randomDelay = Math.random() * 1000;
             setTimeout(() => {
                 cell.style.opacity = randomOpacity;
                 setTimeout(() => {
