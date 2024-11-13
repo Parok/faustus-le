@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const y = Math.floor(index / Math.ceil(fogGrid.offsetWidth / cellSize));
             const noiseValue = simplex.noise3D(x * 0.1, y * 0.1, time);
             const opacity = (noiseValue + 1) / 2;
-            cell.style.opacity = opacity * 0.8 + 0.2; // Increase range for better visibility
+            cell.style.opacity = opacity * 0.5 + 0.1; // Increase range for better visibility
             cell.style.backgroundColor = `rgba(255, 255, 255, ${opacity})`;
 
         });
