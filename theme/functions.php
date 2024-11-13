@@ -11,6 +11,7 @@ function dr_faustus_enqueue_assets() {
     
     // Enqueue JavaScript file
     wp_enqueue_script('fog-effect', get_template_directory_uri() . '/js/fog-effect.js', array(), null, true);
+  
 }
 add_action('wp_enqueue_scripts', 'dr_faustus_enqueue_assets');
 
