@@ -6,15 +6,17 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     const simplex = new SimplexNoise();
+    let numCols, numRows, totalCells;
 
+    // Cache grid dimensions
     function createFogCells() {
         fogGrid.innerHTML = '';
         const gridWidth = fogGrid.offsetWidth;
         const gridHeight = fogGrid.offsetHeight;
-        const cellSize = 20; // Try smaller increments here for smoother results
-        const numCols = Math.floor(gridWidth / cellSize);
-        const numRows = Math.floor(gridHeight / cellSize);
-        const totalCells = numCols * numRows;
+        const cellSize = 30;
+        numCols = Math.floor(gridWidth / cellSize);
+        numRows = Math.floor(gridHeight / cellSize);
+        totalCells = numCols * numRows;
 
         fogGrid.style.gridTemplateColumns = `repeat(${numCols}, 1fr)`;
         fogGrid.style.gridTemplateRows = `repeat(${numRows}, 1fr)`;
@@ -26,24 +28,27 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
+    createFogCells();
+
+    // Optimize animation with requestAnimationFrame
     function animateFog() {
         const cells = document.querySelectorAll('.fog-cell');
-        const time = Date.now() * 0.0002; // Adjust animation speed
+        const time = Date.now() * 0.0002; // Slower animation speed
 
-        cells.forEach((cell, index) => {
-            const x = index % Math.floor(fogGrid.offsetWidth / 20);
-            const y = Math.floor(index / Math.floor(fogGrid.offsetWidth / 20));
+        for (let i = 0; i < cells.length; i++) {
+            const cell = cells[i];
+            const x = i % numCols;
+            const y = Math.floor(i / numCols);
             const noiseValue = simplex.noise3D(x * 0.1, y * 0.1, time);
-            const opacity = (noiseValue + 1) / 2; // Normalize to [0, 1]
-            cell.style.opacity = opacity * 0.7 + 0.2; // Adjust opacity range
-        });
+            const opacity = (noiseValue + 1) / 2;
+            cell.style.opacity = opacity * 0.6 + 0.2;
+        }
+        requestAnimationFrame(animateFog);
     }
 
-    createFogCells();
-    setInterval(animateFog, 100); // Adjust for smoother animation
+    animateFog();
 
     window.addEventListener('resize', () => {
         createFogCells();
-        animateFog();
     });
 });
