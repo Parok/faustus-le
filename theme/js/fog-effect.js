@@ -30,9 +30,11 @@ document.addEventListener('DOMContentLoaded', function () {
             for (let x = 0; x < numCols; x++) {
                 const noiseValue = simplex.noise3D(x * 0.05, y * 0.05, time);
                 const opacity = (noiseValue + 1) / 2;
+                const posX = x * pointSize + Math.sin(time + x) * 5; // Dynamic X coordinate
+                const posY = y * pointSize + Math.cos(time + y) * 5; // Dynamic Y coordinate
                 ctx.fillStyle = `rgba(255, 255, 255, ${opacity * 0.5 + 0.1})`; // Increase range for better visibility
                 ctx.beginPath();
-                ctx.arc(x * pointSize, y * pointSize, pointSize / 2, 0, Math.PI * 2);
+                ctx.arc(posX, posY, pointSize / 2, 0, Math.PI * 2);
                 ctx.fill();
             }
         }
