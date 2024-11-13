@@ -10,12 +10,11 @@ document.addEventListener('DOMContentLoaded', function () {
     const simplex = new SimplexNoise();
     console.log("SimplexNoise object:", simplex);
 
-    // Function to create fog cells
     function createFogCells() {
         fogGrid.innerHTML = '';
         const gridWidth = fogGrid.offsetWidth;
         const gridHeight = fogGrid.offsetHeight;
-        const cellSize = 25; // Adjust for density
+        const cellSize = 25;
         const numCols = Math.ceil(gridWidth / cellSize);
         const numRows = Math.ceil(gridHeight / cellSize);
         const totalCells = numCols * numRows;
@@ -33,30 +32,32 @@ document.addEventListener('DOMContentLoaded', function () {
         return { numCols, numRows };
     }
 
-    // Create cells and get grid dimensions
-    let { numCols, numRows } = createFogCells();
+    const { numCols, numRows } = createFogCells();
 
-    // Animation function with requestAnimationFrame
+    let lastTime = 0;
+
     function animateFog() {
         const cells = document.querySelectorAll('.fog-cell');
-        const time = Date.now() * 0.0002; // Adjust for smoother animation
-
+        const time = Date.now() * 0.0005; // Adjusted speed for more visible change
+        console.log("Animating fog at time:", time); // Add this line
+    
         cells.forEach((cell, index) => {
-            const x = index % numCols;
-            const y = Math.floor(index / numCols);
+            const x = index % Math.ceil(fogGrid.offsetWidth / 25);
+            const y = Math.floor(index / Math.ceil(fogGrid.offsetWidth / 25));
             const noiseValue = simplex.noise3D(x * 0.1, y * 0.1, time);
-            const opacity = (noiseValue + 1) / 2; // Normalize to [0, 1]
-            cell.style.opacity = opacity * 0.8 + 0.2;
+            const opacity = (noiseValue + 1) / 2;
+            cell.style.opacity = opacity * 0.8 + 0.2; // Increase range for better visibility
+            cell.style.backgroundColor = `rgba(255, 255, 255, ${opacity})`;
+
         });
-
-        requestAnimationFrame(animateFog); // Continue animation
+    
+        requestAnimationFrame(animateFog);
     }
+    
 
-    // Start the animation
-    requestAnimationFrame(animateFog);
+    animateFog();
 
-    // Handle window resize
     window.addEventListener('resize', () => {
-        ({ numCols, numRows } = createFogCells()); // Recreate cells on resize
+        createFogCells();
     });
 });
