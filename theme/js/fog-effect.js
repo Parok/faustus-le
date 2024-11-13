@@ -1,7 +1,11 @@
+console.log("Fog effect script with Perlin noise loaded!");
+
 document.addEventListener('DOMContentLoaded', function () {
     const fogCanvas = document.getElementById('fogCanvas');
-    if (!fogCanvas) {
-        console.error("Fog canvas not found. Exiting script.");
+    const logoContainer = document.querySelector('.logo-container');
+
+    if (!fogCanvas || !logoContainer) {
+        console.error("Required elements not found.");
         return;
     }
 
@@ -9,15 +13,18 @@ document.addEventListener('DOMContentLoaded', function () {
     const simplex = new SimplexNoise();
     const zoom = 0.3;
 
-    function resizeCanvas() {
-        fogCanvas.width = window.innerWidth;
-        fogCanvas.height = window.innerHeight;
-    }
-
     // Throttle the frame rate to 30 FPS
     const targetFPS = 30;
     const frameInterval = 1000 / targetFPS;
     let lastFrameTime = 0;
+
+    // Function to resize the canvas based on the logo container size
+    function resizeCanvas() {
+        const containerRect = logoContainer.getBoundingClientRect();
+        fogCanvas.width = containerRect.width;
+        fogCanvas.height = containerRect.height;
+        console.log("Canvas resized to:", fogCanvas.width, fogCanvas.height);
+    }
 
     function drawFog(timestamp) {
         if (timestamp - lastFrameTime < frameInterval) {
@@ -36,11 +43,12 @@ document.addEventListener('DOMContentLoaded', function () {
             for (let x = 0; x < width; x++) {
                 const index = (y * width + x) * 4;
                 const noiseValue = simplex.noise3D(x * zoom, y * zoom, time);
-                const opacity = (noiseValue + 1) / 2 * 0.3;
+                const opacity = Math.min((noiseValue + 1) / 2 * 0.7, 1);
 
-                data[index] = 255;         // Red
-                data[index + 1] = 255;     // Green
-                data[index + 2] = 255;     // Blue
+                // Set pixel color with adjusted opacity
+                data[index] = 255;        // Red
+                data[index + 1] = 255;    // Green
+                data[index + 2] = 255;    // Blue
                 data[index + 3] = Math.floor(opacity * 255); // Alpha
             }
         }
@@ -49,10 +57,10 @@ document.addEventListener('DOMContentLoaded', function () {
         requestAnimationFrame(drawFog);
     }
 
+    // Initialize canvas size and draw fog
     resizeCanvas();
     drawFog(0);
 
-    window.addEventListener('resize', () => {
-        resizeCanvas();
-    });
+    // Resize canvas when the window is resized
+    window.addEventListener('resize', resizeCanvas);
 });
