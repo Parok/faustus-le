@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         });
     
-        requestAnimationFrame(animateFog);
+        window.setTimeout(requestAnimationFrame(animateFog), 1000 / 60);
     }
     
 
