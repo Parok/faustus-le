@@ -47,7 +47,6 @@ document.addEventListener('DOMContentLoaded', function () {
             const noiseValue = simplex.noise3D(x * 0.1, y * 0.1, time);
             const opacity = (noiseValue + 1) / 2;
             cell.style.opacity = opacity * 0.8 + 0.2; // Increase range for better visibility
-
         });
     
         requestAnimationFrame(animateFog);
