@@ -1,5 +1,6 @@
 /* Navigation Bar Styling */
 .main-navigation {
+    margin-top: 1.5rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -54,11 +55,16 @@
     text-shadow: 0 0 5px rgba(255, 255, 255, 0.6), 0 0 10px rgba(255, 255, 255, 0.4);
 }
 
-/* Responsive Navigation */
+
+
+/* Responsive Adjustments */
 @media (max-width: 768px) {
+    .logo-container {
+        margin-bottom: 20px; /* Adjust spacing on smaller screens */
+    }
+    
     .nav-menu {
         flex-direction: column;
         gap: 20px;
-        text-align: center;
     }
 }
