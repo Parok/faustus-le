@@ -13,14 +13,15 @@ document.addEventListener('DOMContentLoaded', function () {
     const simplex = new SimplexNoise();
 
     // Adjust parameters for better visibility
-    let zoom = 0.5; // Lower zoom for larger visible patterns
-    let speed = 0.0001; // Slightly faster speed to see the movement
-    let opacityScale = 0.3; // Increase opacity for better visibility
+    let zoom = 0.2; // Decrease zoom for larger patterns
+    let speed = 0.0002; // Increase speed for more noticeable movement
+    let opacityScale = 0.5; // Increase opacity for better visibility
 
     const targetFPS = 15;
     const frameInterval = 1000 / targetFPS;
     let lastFrameTime = 0;
 
+    // Function to resize the canvas based on the logo container size
     function resizeCanvas() {
         const containerRect = logoContainer.getBoundingClientRect();
         fogCanvas.width = containerRect.width;
@@ -38,7 +39,6 @@ document.addEventListener('DOMContentLoaded', function () {
         const width = fogCanvas.width;
         const height = fogCanvas.height;
 
-        // Check if the canvas has valid dimensions
         if (width === 0 || height === 0) {
             console.warn("Canvas has zero width or height");
             return;
@@ -56,9 +56,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 const opacity = Math.min((noiseValue + 1) / 2 * opacityScale, 1);
 
                 // Set pixel color with adjusted opacity
-                data[index] = 255;        // Red
-                data[index + 1] = 255;    // Green
-                data[index + 2] = 255;    // Blue
+                data[index] = 200;        // Red
+                data[index + 1] = 200;    // Green
+                data[index + 2] = 200;    // Blue
                 data[index + 3] = Math.floor(opacity * 255); // Alpha
             }
         }
@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', function () {
         requestAnimationFrame(drawFog);
     }
 
-    // Initialize the canvas and start the fog effect
+    // Initialize canvas size and start the fog effect
     resizeCanvas();
     drawFog(0);
 
