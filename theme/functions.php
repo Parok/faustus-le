@@ -12,6 +12,8 @@ function dr_faustus_enqueue_assets() {
     // Enqueue JavaScript file
     wp_enqueue_script('simplex-noise', 'https://cdn.jsdelivr.net/npm/simplex-noise@2.4.0/simplex-noise.min.js', array(), null, true);
     wp_enqueue_script('fog-effect', get_template_directory_uri() . '/js/fog-effect.js', array(), null, true);
+    wp_enqueue_script('fog-effect', get_template_directory_uri() . '/js/nav.js', array(), null, true);
+
   
 }
 add_action('wp_enqueue_scripts', 'dr_faustus_enqueue_assets');

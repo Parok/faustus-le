@@ -1,63 +1,64 @@
-/* Navigation Menu Item Styling */
-.nav-menu li {
-    position: relative;
-    overflow: hidden; /* Prevent overflow of animated borders */
+/* Navigation Bar Styling */
+.main-navigation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
 }
 
-.nav-menu li a {
-    color: #d1b76a;
-    text-transform: uppercase;
-    font-weight: bold;
+.nav-menu {
+    list-style: none;
+    display: flex;
+    gap: 50px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-link {
+    position: relative;
     text-decoration: none;
-    letter-spacing: 0.1vw;
-    padding: 1vh 1.5vw;
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    color: #d4af37;
+    transition: color 0.3s ease-in-out;
     display: inline-block;
-    position: relative;
-    transition: color 0.3s ease;
-    z-index: 1;
 }
 
-/* Top Border Animation */
-.nav-menu li a::before {
+.nav-link:hover {
+    color: #ffffff;
+}
+
+/* Animated Underline Effect */
+.nav-link::after {
     content: '';
     position: absolute;
-    top: 0;
-    right: 0;
+    left: 50%;
+    bottom: -5px;
     width: 0;
     height: 2px;
-    background-color: #f5c000;
-    transition: width 0.4s ease-out;
+    background-color: #d4af37;
+    transition: all 0.4s ease-in-out;
+    transform: translateX(-50%);
 }
 
-/* Bottom Border Animation */
-.nav-menu li a::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background-color: #f5c000;
-    transition: width 0.4s ease-out;
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
 }
 
-/* On hover: draw top and bottom lines */
-.nav-menu li a:hover::before {
-    width: 100%; /* Top border animates from right to left */
-    left: 0;
+/* Glowing Effect on Hover */
+.nav-link:hover {
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.6), 0 0 10px rgba(255, 255, 255, 0.4);
 }
 
-.nav-menu li a:hover::after {
-    width: 100%; /* Bottom border animates from left to right */
-    right: 0;
-}
-
-/* Instantly retract lines on hover out */
-.nav-menu li a::before,
-.nav-menu li a::after {
-    transition: width 0s ease-in;
-}
-
-.nav-menu li a:hover {
-    color: #f5c000; /* Change text color on hover */
+/* Responsive Navigation */
+@media (max-width: 768px) {
+    .nav-menu {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
 }
