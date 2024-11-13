@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function () {
         fogGrid.innerHTML = '';
         const gridWidth = fogGrid.offsetWidth;
         const gridHeight = fogGrid.offsetHeight;
-        const cellSize = 30;
+        const cellSize = 25;
         const numCols = Math.ceil(gridWidth / cellSize);
         const numRows = Math.ceil(gridHeight / cellSize);
         const totalCells = numCols * numRows;
@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let lastTime = 0;
     function animateFog() {
         const cells = document.querySelectorAll('.fog-cell');
-        const time = Date.now() * 0.00005;
+        const time = Date.now() * 0.0002; // Increased speed
 
         cells.forEach((cell, index) => {
             const x = index % numCols;
@@ -45,10 +45,8 @@ document.addEventListener('DOMContentLoaded', function () {
             const noiseValue = simplex.noise3D(x * 0.1, y * 0.1, time);
             const opacity = (noiseValue + 1) / 2;
 
-            // Log the noise and opacity values for debugging
-            console.log(`Cell ${index}: Noise = ${noiseValue.toFixed(2)}, Opacity = ${opacity.toFixed(2)}`);
-
-            cell.style.opacity = opacity * 0.6 + 0.2;
+            // Increase the opacity range for more visibility
+            cell.style.opacity = opacity * 0.8 + 0.2; 
         });
 
         requestAnimationFrame(animateFog);
