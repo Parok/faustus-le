@@ -36,23 +36,23 @@ document.addEventListener('DOMContentLoaded', function () {
 
     let lastTime = 0;
 
+    
     function animateFog() {
         const cells = document.querySelectorAll('.fog-cell');
-        const time = Date.now() * 0.0005; // Adjusted speed for more visible change
-        console.log("Animating fog at time:", time); // Add this line
+        const time = Date.now() * 0.0002; // Adjusted speed for smoother animation
     
         cells.forEach((cell, index) => {
-            const x = index % Math.ceil(fogGrid.offsetWidth / 25);
-            const y = Math.floor(index / Math.ceil(fogGrid.offsetWidth / 25));
+            const x = index % numCols;
+            const y = Math.floor(index / numCols);
             const noiseValue = simplex.noise3D(x * 0.1, y * 0.1, time);
             const opacity = (noiseValue + 1) / 2;
-            cell.style.opacity = opacity * 0.8 + 0.2; // Increase range for better visibility
+            cell.style.opacity = opacity * 0.8 + 0.2;
         });
-    
-        requestAnimationFrame(animateFog);
     }
     
-
+    // Run the animation every 100 milliseconds
+    setInterval(animateFog, 100);
+    
     animateFog();
 
     window.addEventListener('resize', () => {
