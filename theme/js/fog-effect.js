@@ -13,11 +13,12 @@ document.addEventListener('DOMContentLoaded', function () {
     const simplex = new SimplexNoise();
 
     // Adjust parameters for larger, whiter clouds
-    let zoom = 0.1; // Lower zoom for larger cloud patterns
-    let speed = 0.00005; // Slower movement for gentle motion
+    let zoom = 0.003; // Lower zoom for larger cloud patterns
+    let speed = 0.0005; // Slower movement for gentle motion
     let opacityScale = 0.8; // Higher opacity for more visible fog
 
-    const targetFPS = 15;
+
+    const targetFPS = 25;
     const frameInterval = 1000 / targetFPS;
     let lastFrameTime = 0;
 
