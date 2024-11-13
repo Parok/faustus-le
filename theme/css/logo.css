@@ -21,19 +21,23 @@
     position: absolute;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
     width: 100%;
     height: 100%;
     display: grid;
+    grid-template-columns: repeat(30, 1fr); /* Use flexible columns */
+    grid-template-rows: repeat(30, 1fr);    /* Use flexible rows */
+    align-items: stretch;
+    justify-items: stretch;
     pointer-events: none;
-    overflow: hidden; /* Prevent overflow */
     z-index: 9999;
+    border: 2px solid red; /* Temporary debugging border */
 }
+
+/* Fog Cells */
 
 .fog-cell {
-    background-color: rgba(255, 255, 255, 0.2);
-    transition: opacity 1.5s ease-in-out;
+    background-color: rgba(255, 255, 255, 0.5);
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
     pointer-events: none;
 }
-
