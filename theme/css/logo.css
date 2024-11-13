@@ -23,11 +23,13 @@
     position: absolute;
     top: 0;
     left: 0;
+    right: 0;
+    bottom: 0;
     width: 100%;
     height: 100%;
     display: grid;
-    grid-auto-rows: 10px; /* Fixed height for rows */
-    grid-auto-columns: 10px; /* Fixed width for columns */
+    grid-template-columns: repeat(30, 1fr); /* Adjust column count */
+    grid-template-rows: repeat(30, 1fr);    /* Adjust row count */
     align-items: stretch;
     justify-items: stretch;
     pointer-events: none;
@@ -36,11 +38,11 @@
 }
 
 
-
 .fog-cell {
-    background-color: rgba(255, 255, 255, 0.4); /* More white, slightly less transparent */
+    background-color: rgba(255, 255, 255, 0.4);
     opacity: 0;
     transition: opacity 1.5s ease-in-out;
     pointer-events: none;
+    border: 1px solid blue; /* Temporary border for visibility */
 }
 
