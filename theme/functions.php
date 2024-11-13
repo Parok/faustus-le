@@ -10,6 +10,7 @@ function dr_faustus_enqueue_assets() {
     wp_enqueue_style('faustus-logo', get_template_directory_uri() . '/css/logo.css');
     
     // Enqueue JavaScript file
+    wp_enqueue_script('simplex-noise', 'https://cdn.jsdelivr.net/npm/simplex-noise@2.4.0/simplex-noise.min.js', array(), null, true);
     wp_enqueue_script('fog-effect', get_template_directory_uri() . '/js/fog-effect.js', array(), null, true);
   
 }
