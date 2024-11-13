@@ -38,8 +38,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function animateFog() {
         const cells = document.querySelectorAll('.fog-cell');
-        const time = Date.now() * 0.00035; // Adjusted speed for more visible change
-        console.log("Animating fog at time:", time); // Add this line
+        const time = Date.now() * 0.001; // Adjusted speed for more visible change
     
         cells.forEach((cell, index) => {
             const x = index % Math.ceil(fogGrid.offsetWidth / cellSize);
@@ -54,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     
 
-    requestAnimationFrame(animateFog);
+    animateFog();
 
     window.addEventListener('resize', () => {
         createFogCells();
