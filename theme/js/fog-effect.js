@@ -12,10 +12,10 @@ document.addEventListener('DOMContentLoaded', function () {
     const ctx = fogCanvas.getContext('2d');
     const simplex = new SimplexNoise();
 
-    // Adjust parameters for better visibility
-    let zoom = 0.2; // Decrease zoom for larger patterns
-    let speed = 0.0002; // Increase speed for more noticeable movement
-    let opacityScale = 0.5; // Increase opacity for better visibility
+    // Adjust parameters for larger, whiter clouds
+    let zoom = 0.1; // Lower zoom for larger cloud patterns
+    let speed = 0.00005; // Slower movement for gentle motion
+    let opacityScale = 0.8; // Higher opacity for more visible fog
 
     const targetFPS = 15;
     const frameInterval = 1000 / targetFPS;
@@ -55,10 +55,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 const noiseValue = simplex.noise3D(x * zoom, y * zoom, time);
                 const opacity = Math.min((noiseValue + 1) / 2 * opacityScale, 1);
 
-                // Set pixel color with adjusted opacity
-                data[index] = 200;        // Red
-                data[index + 1] = 200;    // Green
-                data[index + 2] = 200;    // Blue
+                // Set pixel color with adjusted opacity for whiter clouds
+                data[index] = 240;        // Red (close to white)
+                data[index + 1] = 240;    // Green (close to white)
+                data[index + 2] = 240;    // Blue (close to white)
                 data[index + 3] = Math.floor(opacity * 255); // Alpha
             }
         }
