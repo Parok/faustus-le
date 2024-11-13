@@ -13,7 +13,7 @@
 
         <div class="logo-container">
             <img src="<?php echo get_template_directory_uri(); ?>/images/faustus-logo.jpeg" alt="Faustus Logo" class="logo">
-            <div class="fog-grid"></div>
+            <canvas id="fogCanvas" class="fog-grid"></canvas>
         </div>
 
         <nav class="main-navigation">
