@@ -1,3 +1,6 @@
+const { from } = require("form-data");
+const { formatExecError } = require("jest-message-util");
+
 console.log("Fog effect script with Perlin noise loaded!");
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -34,21 +37,26 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const { numCols, numRows } = createFogCells();
 
-    let lastTime = 0;
+    const skipFrames = 2;
+    let frameCount = 0;
 
     function animateFog() {
-        const cells = document.querySelectorAll('.fog-cell');
-        const time = Date.now() * 0.00035; // Adjusted speed for more visible change
-    
-        cells.forEach((cell, index) => {
-            const x = index % Math.ceil(fogGrid.offsetWidth / cellSize);
-            const y = Math.floor(index / Math.ceil(fogGrid.offsetWidth / cellSize));
-            const noiseValue = simplex.noise3D(x * 0.05, y * 0.05, time);
-            const opacity = (noiseValue + 1) / 2;
-            cell.style.opacity = opacity * 0.5 + 0.1; // Increase range for better visibility
-            cell.style.backgroundColor = `rgba(255, 255, 255, ${opacity})`;
-        });
-    
+        frameCount++;
+        if (frameCount % skipFrames === 0) {
+            const cells = document.querySelectorAll('.fog-cell');
+            const time = Date.now() * 0.00035; // Adjusted speed for more visible change
+        
+            cells.forEach((cell, index) => {
+                
+                const x = index % Math.ceil(fogGrid.offsetWidth / cellSize);
+                const y = Math.floor(index / Math.ceil(fogGrid.offsetWidth / cellSize));
+                const noiseValue = simplex.noise3D(x * 0.05, y * 0.05, time);
+                const opacity = (noiseValue + 1) / 2;
+                cell.style.opacity = opacity * 0.5 + 0.1; // Increase range for better visibility
+                cell.style.backgroundColor = `rgba(255, 255, 255, ${opacity})`;
+            });
+        }
+        
         requestAnimationFrame(animateFog);
     }
     
