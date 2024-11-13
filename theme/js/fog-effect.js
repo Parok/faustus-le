@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function () {
         fogGrid.innerHTML = '';
         const gridWidth = fogGrid.offsetWidth;
         const gridHeight = fogGrid.offsetHeight;
-        const cellSize = 25;
+        const cellSize = 15;
         const numCols = Math.ceil(gridWidth / cellSize);
         const numRows = Math.ceil(gridHeight / cellSize);
         const totalCells = numCols * numRows;
@@ -47,7 +47,6 @@ document.addEventListener('DOMContentLoaded', function () {
             const noiseValue = simplex.noise3D(x * 0.1, y * 0.1, time);
             const opacity = (noiseValue + 1) / 2;
             cell.style.opacity = opacity * 0.8 + 0.2; // Increase range for better visibility
-            cell.style.backgroundColor = `rgba(255, 255, 255, ${opacity})`;
 
         });
     
