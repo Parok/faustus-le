@@ -1,6 +1,6 @@
 console.log("Fog effect script with Perlin noise loaded!");
 
-let simplex; // Declare simplex globally
+let simplex;
 
 document.addEventListener('DOMContentLoaded', function () {
     const fogGrid = document.querySelector('.fog-grid');
@@ -9,7 +9,6 @@ document.addEventListener('DOMContentLoaded', function () {
         return;
     }
 
-    // Initialize SimplexNoise globally
     simplex = new SimplexNoise();
     console.log("SimplexNoise object:", simplex);
 
@@ -17,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function () {
         fogGrid.innerHTML = '';
         const gridWidth = fogGrid.offsetWidth;
         const gridHeight = fogGrid.offsetHeight;
-        const cellSize = 25; // Adjust for density
+        const cellSize = 30; // Adjust for density
         const numCols = Math.ceil(gridWidth / cellSize);
         const numRows = Math.ceil(gridHeight / cellSize);
         const totalCells = numCols * numRows;
@@ -32,30 +31,31 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         console.log(`Created ${totalCells} fog cells.`);
+        return { numCols, numRows };
     }
 
+    const { numCols, numRows } = createFogCells();
+
+    // Use a single animation frame request for smoother performance
+    let lastTime = 0;
     function animateFog() {
         const cells = document.querySelectorAll('.fog-cell');
-        const time = Date.now() * 0.0001;
+        const time = Date.now() * 0.00005; // Adjust speed for smoother animation
 
         cells.forEach((cell, index) => {
-            const x = index % Math.ceil(fogGrid.offsetWidth / 25);
-            const y = Math.floor(index / Math.ceil(fogGrid.offsetWidth / 25));
+            const x = index % numCols;
+            const y = Math.floor(index / numCols);
             const noiseValue = simplex.noise3D(x * 0.1, y * 0.1, time);
-            const opacity = (noiseValue + 1) / 2;
-            cell.style.opacity = opacity * 0.8 + 0.1;
+            const opacity = (noiseValue + 1) / 2; // Normalize to [0, 1]
+            cell.style.opacity = opacity * 0.6 + 0.2;
         });
 
         requestAnimationFrame(animateFog);
     }
 
-    // Create fog cells initially
-    createFogCells();
-
-    // Start animation
     animateFog();
 
-    // Recreate fog cells on window resize
+    // Handle resizing
     window.addEventListener('resize', () => {
         createFogCells();
     });
