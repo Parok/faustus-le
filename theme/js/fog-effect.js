@@ -35,22 +35,25 @@ document.addEventListener('DOMContentLoaded', function () {
     const { numCols, numRows } = createFogCells();
 
     let lastTime = 0;
+
     function animateFog() {
         const cells = document.querySelectorAll('.fog-cell');
-        const time = Date.now() * 0.0002; // Increased speed
-
+        const time = Date.now() * 0.0005; // Adjusted speed for more visible change
+        console.log("Animating fog at time:", time); // Add this line
+    
         cells.forEach((cell, index) => {
-            const x = index % numCols;
-            const y = Math.floor(index / numCols);
+            const x = index % Math.ceil(fogGrid.offsetWidth / 25);
+            const y = Math.floor(index / Math.ceil(fogGrid.offsetWidth / 25));
             const noiseValue = simplex.noise3D(x * 0.1, y * 0.1, time);
             const opacity = (noiseValue + 1) / 2;
+            cell.style.opacity = opacity * 0.8 + 0.2; // Increase range for better visibility
+            cell.style.backgroundColor = `rgba(255, 255, 255, ${opacity})`;
 
-            // Increase the opacity range for more visibility
-            cell.style.opacity = opacity * 0.8 + 0.2; 
         });
-
+    
         requestAnimationFrame(animateFog);
     }
+    
 
     animateFog();
 
