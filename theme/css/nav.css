@@ -1,35 +1,43 @@
 /* Navigation Bar Styling */
 .main-navigation {
-    margin-top: 1.5rem;
+    margin-top: 2.5rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px 0;
-    background-color: rgba(0, 0, 0, 0.8);
+    padding: 1.5rem 0; /* Adjust padding to ensure background covers the bar */
+    background-color: rgba(0, 0, 0, 0.8); /* Ensure background color is visible */
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    min-height: 60px; /* Ensures the navigation bar doesn't collapse */
+    width: 100%; /* Make sure the navigation bar spans the full width */
 }
 
+/* Navigation Menu */
 .nav-menu {
     list-style: none;
     display: flex;
-    gap: 50px;
+    gap: 2rem;
     margin: 0;
     padding: 0;
+    justify-content: center;
 }
 
+/* Navigation Link Styling */
 .nav-link {
     position: relative;
     text-decoration: none;
     font-family: 'Playfair Display', serif;
-    font-size: 18px;
+    font-size: 1.5rem;
     color: #d4af37;
-    transition: color 0.3s ease-in-out;
+    transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
     display: inline-block;
+    padding: 0.5em 1em;
 }
 
 .nav-link:hover {
     color: #ffffff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.6);
+    transform: translateY(-3px);
 }
 
 /* Animated Underline Effect */
@@ -37,9 +45,9 @@
     content: '';
     position: absolute;
     left: 50%;
-    bottom: -5px;
+    bottom: -8px;
     width: 0;
-    height: 2px;
+    height: 3px;
     background-color: #d4af37;
     transition: all 0.4s ease-in-out;
     transform: translateX(-50%);
@@ -50,21 +58,15 @@
     width: 100%;
 }
 
-/* Glowing Effect on Hover */
-.nav-link:hover {
-    text-shadow: 0 0 5px rgba(255, 255, 255, 0.6), 0 0 10px rgba(255, 255, 255, 0.4);
-}
-
-
-
 /* Responsive Adjustments */
 @media (max-width: 768px) {
-    .logo-container {
-        margin-bottom: 20px; /* Adjust spacing on smaller screens */
-    }
-    
     .nav-menu {
         flex-direction: column;
-        gap: 20px;
+        gap: 1.5rem;
+    }
+    
+    .main-navigation {
+        padding: 1.5rem 0;
+        min-height: 80px; /* Increase height for smaller screens */
     }
 }
