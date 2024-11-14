@@ -7,7 +7,7 @@
     margin-top: 1.5rem;
     position: relative;
     overflow: hidden; /* Ensures nothing overflows */
-    border-radius: 12px 12px 0 0; /* Rounded corners only at the top */
+    border-radius: 12px ; /* Rounded corners only at the top */
 }
 
 /* Logo Styling */
