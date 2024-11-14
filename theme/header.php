@@ -25,7 +25,7 @@
                 'link_before' => '<span class="nav-link">',
                 'link_after' => '</span>',
             ));
-            ?>
+            ?> 
         </nav>
     </div>
 </header>
