@@ -1,27 +1,11 @@
 /* Logo Container Styling */
 .logo-container {
-    display: flex;
-    max-width: 66%;
-    justify-content: center;
-    justify-self: center;
     align-items: center;
-    margin-bottom: 0rem;
-    margin-top: 1.5rem;
     position: relative;
     overflow: hidden; /* Ensures nothing overflows */
     border-radius: 12px ; /* Rounded corners only at the top */
 }
 
-/* Logo Styling */
-.logo {
-    display: block;
-    width: 100%;
-    height: auto;
-    border-radius: 12px 12px 0 0; /* Ensure the logo matches the container's border-radius */
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-    position: relative;
-    z-index: 1; /* Ensure it's above the fog effect */
-}
 
 /* Adjusted Pseudo-Element for Logo Container */
 .logo-container::after {
@@ -35,6 +19,17 @@
     pointer-events: none;
     z-index: 0; /* Ensure it stays behind the logo */
     clip-path: inset(0 0 0 0 round 12px 12px 0 0); /* Apply border-radius to pseudo-element */
+}
+
+/* Logo Styling */
+.logo {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 12px 12px 0 0; /* Ensure the logo matches the container's border-radius */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    position: relative;
+    z-index: 1; /* Ensure it's above the fog effect */
 }
 
 

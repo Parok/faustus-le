@@ -1,7 +1,5 @@
 /* Navigation Bar Styling */
 .main-navigation {
-    display: flex;
-    justify-content: center;
     align-items: center;
     padding: 20px 0;
     background-color: rgba(0, 0, 0, 0.8);
@@ -12,9 +10,6 @@
     margin-top: 1rem; /* Reduce space */
     position: sticky;
     top: 0;
-    z-index: 10;
-    max-width: 66%;
-
 }
 /* Border and Shadow for the Navigation Bar on Hover */
 .main-navigation:hover {

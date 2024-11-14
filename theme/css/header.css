@@ -10,7 +10,7 @@ html {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    padding: 3rem 5vw 1rem 5vw; /* Adjusted bottom padding to reduce gap */
+    padding: 1rem 5vw 1rem 5vw; /* Adjusted bottom padding to reduce gap */
     background-color: #101010;
     text-align: center;
     margin: 0 auto;
@@ -39,4 +39,14 @@ body {
     padding: 0;
     font-size: 1rem;
     line-height: 1.6;
+}
+
+.logo-container, .main-navigation {
+    display: flex;
+    width:66%;
+    justify-content: space-between;
+    justify-self:center;
+    align-items: center;
+    margin-bottom: 1rem;
+    z-index: 10;
 }
