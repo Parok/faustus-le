@@ -1,5 +1,6 @@
 /* Navigation Bar Styling */
 .main-navigation {
+    justify-content: center;
     align-items: center;
     padding: 20px 0;
     background-color: rgba(0, 0, 0, 0.8);
