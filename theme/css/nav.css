@@ -1,70 +1,103 @@
 /* Navigation Bar Styling */
 .main-navigation {
-    margin: 0;
+    margin-top: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 1rem 0;
-    background-color: rgba(0, 0, 0, 0.85);
-    border-top: none;
-    box-shadow: none; /* Remove extra shadow for a cleaner look */
+    padding: 20px 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    border: 2px solid #a3872d; /* Dark gold border */
+    border-radius: 0 0 12px 12px; /* Rounded corners only at the bottom */
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+    transition: all 0.3s ease-in-out;
 }
 
-/* Navigation Menu */
+.main-navigation:hover {
+    box-shadow: 0 0 30px rgba(212, 175, 55, 1), 0 0 50px rgba(212, 175, 55, 0.7);
+}
+
+/* Navigation Menu Styling */
 .nav-menu {
     list-style: none;
     display: flex;
-    gap: 2rem;
+    gap: 30px; /* Adjusted gap for a more compact layout */
     margin: 0;
     padding: 0;
-    justify-content: center;
 }
 
-/* Navigation Link Styling */
+/* Individual Navigation Links */
 .nav-link {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px; /* Increased font size for prominence */
+    color: #d4af37;
     position: relative;
     text-decoration: none;
-    font-family: 'Playfair Display', serif;
-    font-size: 1.5rem;
-    color: #d4af37;
-    transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
     display: inline-block;
-    padding: 0.5em 1em;
+    padding: 8px 15px; /* Added padding for better click area */
+    text-shadow: 0 0 5px rgba(212, 175, 55, 0.7);
 }
 
 .nav-link:hover {
-    color: #ffffff;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.6);
-    transform: translateY(-3px);
+    color: #ffffff; /* Change text color on hover */
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 0 0 20px rgba(212, 175, 55, 1); /* Enhanced glow on hover */
 }
 
-/* Animated Underline Effect */
+/* Underline Effect */
 .nav-link::after {
     content: '';
     position: absolute;
     left: 50%;
-    bottom: -8px;
+    bottom: -6px;
     width: 0;
-    height: 3px;
+    height: 2px;
     background-color: #d4af37;
     transition: all 0.4s ease-in-out;
     transform: translateX(-50%);
 }
 
-.nav-link:hover::after,
-.nav-link.active::after {
+.nav-link:hover::after {
     width: 100%;
+}
+
+/* Glowing Effect for Active Link */
+.nav-link.active {
+    color: #ffffff;
+    text-shadow: 0 0 12px rgba(255, 255, 255, 1), 0 0 25px rgba(212, 175, 55, 1);
+}
+
+/* Border and Shadow for the Navigation Bar on Hover */
+.main-navigation:hover {
+    box-shadow: 0 0 20px rgba(212, 175, 55, 1), 0 0 30px rgba(212, 175, 55, 0.9);
 }
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
+    .main-navigation {
+        padding: 15px;
+        border-radius: 8px;
+        margin-top: 1rem;
+    }
+
     .nav-menu {
         flex-direction: column;
-        gap: 1.5rem;
+        gap: 15px;
+        align-items: center;
     }
-    
+
+    .nav-link {
+        font-size: 18px;
+    }
+}
+
+/* Glowing Border Effect for Smaller Screens */
+@media (max-width: 480px) {
     .main-navigation {
-        padding: 1.5rem 0;
-        min-height: 80px; /* Increase height for smaller screens */
+        border: 1px solid #a3872d;
+        padding: 10px;
+    }
+
+    .nav-link {
+        font-size: 16px;
     }
 }
