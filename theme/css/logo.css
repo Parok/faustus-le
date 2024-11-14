@@ -1,7 +1,9 @@
 /* Logo Container Styling */
 .logo-container {
     display: flex;
+    max-width: 66%;
     justify-content: center;
+    justify-self: center;
     align-items: center;
     margin-bottom: 0rem;
     margin-top: 1.5rem;
