@@ -1,6 +1,5 @@
 /* Navigation Bar Styling */
 .main-navigation {
-    margin-top: 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -14,13 +13,17 @@
     position: sticky;
     top: 0;
     z-index: 10;
+    max-width: 66%;
 
 }
-
+/* Border and Shadow for the Navigation Bar on Hover */
 .main-navigation:hover {
-    box-shadow: 0 0 30px rgba(212, 175, 55, 1), 0 0 50px rgba(212, 175, 55, 0.7);
+    box-shadow: 0 0 20px rgba(212, 175, 55, 1), 0 0 30px rgba(212, 175, 55, 0.9);
 }
-
+.nav-link:hover {
+    color: #ffffff; /* Change text color on hover */
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 0 0 20px rgba(212, 175, 55, 1); /* Enhanced glow on hover */
+}
 /* Navigation Menu Styling */
 .nav-menu {
     list-style: none;
@@ -43,10 +46,7 @@
     text-shadow: 0 0 5px rgba(212, 175, 55, 0.7);
 }
 
-.nav-link:hover {
-    color: #ffffff; /* Change text color on hover */
-    text-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 0 0 20px rgba(212, 175, 55, 1); /* Enhanced glow on hover */
-}
+
 
 /* Underline Effect */
 .nav-link::after {
@@ -71,10 +71,7 @@
     text-shadow: 0 0 12px rgba(255, 255, 255, 1), 0 0 25px rgba(212, 175, 55, 1);
 }
 
-/* Border and Shadow for the Navigation Bar on Hover */
-.main-navigation:hover {
-    box-shadow: 0 0 20px rgba(212, 175, 55, 1), 0 0 30px rgba(212, 175, 55, 0.9);
-}
+
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
