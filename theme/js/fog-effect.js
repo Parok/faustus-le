@@ -29,6 +29,12 @@ document.addEventListener('DOMContentLoaded', function () {
         fogCanvas.height = containerRect.height;
         console.log(`Canvas resized to: ${fogCanvas.width}x${fogCanvas.height}`);
     }
+    function resizeCanvas() {
+        const fogCanvas = document.getElementById('fogCanvas');
+        const logoContainer = document.querySelector('.logo-container');
+        fogCanvas.width = logoContainer.clientWidth;
+        fogCanvas.height = logoContainer.clientHeight;
+    }
 
     function drawFog(timestamp) {
         if (timestamp - lastFrameTime < frameInterval) {

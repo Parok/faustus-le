@@ -1,14 +1,37 @@
 /* Container for Logo and Fog Grid */
+
+/* Fog Canvas Styling */
+#fogCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    clip-path: inset(1px 0 0 0); /* Ensure the fog effect does not go beyond the top boundary */
+}
 .logo-container {
-    position: relative;
-    max-width: 60%;
-    height: auto;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0 auto;
-
+    margin-bottom: 0;
+    padding-top: 0rem;
+    position: relative;
 }
+
+/* Adjust the Gradient for Better Flow */
+.logo-container::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.85));
+    pointer-events: none;
+}
+
 
 /* Logo Image */
 .logo {
