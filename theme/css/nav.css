@@ -10,6 +10,11 @@
     border-radius: 0 0 12px 12px; /* Rounded corners only at the bottom */
     box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
     transition: all 0.3s ease-in-out;
+    margin-top: 1rem; /* Reduce space */
+    position: sticky;
+    top: 0;
+    z-index: 10;
+
 }
 
 .main-navigation:hover {
