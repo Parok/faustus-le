@@ -1,0 +1,65 @@
+/* Quote Section - Separator Lines */
+.quote-section {
+    position: relative;
+    max-width: 100%;
+    margin: 2rem auto;
+    padding: 20px 5%; /* Space for the bubble and lines */
+    text-align: center;
+    border-radius: 15px; /* Match the bubble's curves */
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+}
+
+.quote-section::before,
+.quote-section::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 2px; /* Line thickness */
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.1));
+}
+
+.quote-section::before {
+    top: 0; /* Line above the bubble */
+}
+
+.quote-section::after {
+    bottom: 0; /* Line below the bubble */
+}
+
+/* Bubble Container */
+.quote-container {
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 30px; /* Internal padding for text */
+    background: rgba(50, 50, 70, 0.1);
+    border-radius: 20px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+/* Oval Fog */
+.oval-fog {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 100%;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: -1; /* Behind the bubble */
+}
+
+/* Marlowe Quote Text */
+.marlowe-quote {
+    position: absolute;
+    z-index: 2;
+    font-family: 'Crimson Text', serif;
+    font-size: 2rem;
+    color: black; ;
+    text-shadow: 2px 2px 4px rgba(249, 253, 16, 0.6);
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+} 

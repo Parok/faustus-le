@@ -2,14 +2,17 @@
 /* Content Container */
 .container {
     max-width: 950px;
-    margin: 40px auto;
-    padding: 30px;
+    margin: 0px auto;
     color: #e5e5e5;
     background: rgba(25, 25, 25, 0.35); /* Dark with transparency */
     border-radius: 10px;
     border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
+    min-height: 100%; /* Ensure it can stretch */
+
+
 }
+
 .container::before {
     content: '';
     position: absolute;
@@ -57,11 +60,12 @@ p {
 /* Styling for the Entire Content Area */
 .content-area {
     background-color: rgba(0, 0, 0, 0.8); /* Dark overlay for better readability */
-    padding: 60px 20px;
     border-radius: 15px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7);
     text-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
-    margin: 40px auto;
+    margin: 0px auto;
+    margin-top: 2rem; /* Push the content further down */
+    padding: 0 5%; /* Add horizontal padding for a consistent layout */
     max-width: 1000px; /* Set a max width to center the content area */
 }
 

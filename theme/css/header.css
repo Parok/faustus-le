@@ -1,8 +1,4 @@
 /* Header Enhancements */
-html {
-    font-size: 16px; /* 1rem = 16px */
-}
-
 /* Site Header Enhancements */
 .site-header {
     position: relative;
@@ -29,24 +25,64 @@ html {
     width: 100%;
     height: 100%;
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9));
-    z-index: -1;
+    z-index: -1; /* Keep it behind the header content */
     pointer-events: none;
-}
-/* Fix Background Attachment for Overall Page */
-body {
-    background-attachment: fixed;
-    margin: 0;
-    padding: 0;
-    font-size: 1rem;
-    line-height: 1.6;
 }
 
 .logo-container, .main-navigation {
+    position: relative;
     display: flex;
-    width:66%;
+    overflow: hidden; /* Ensures nothing overflows */
+    width:33%;
     justify-content: space-between;
     justify-self:center;
     align-items: center;
     margin-bottom: 1rem;
     z-index: 10;
+}
+
+/* Logo Container Styling */
+.logo-container {
+    border-radius: 12px ; /* Rounded corners only at the top */
+}
+
+
+/* Adjusted Pseudo-Element for Logo Container */
+.logo-container::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 10px; /* Adjust the height to fit within the container */
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7));
+    pointer-events: none;
+    z-index: 0; /* Ensure it stays behind the logo */
+    clip-path: inset(0 0 0 0 round 12px 12px 0 0); /* Apply border-radius to pseudo-element */
+}
+
+
+@media (max-width: 768px) {
+    .logo-container {
+        max-width: 100%;
+        width: 100%;
+
+    }
+}
+
+@media (max-width: 480px) {
+    .logo-container {
+        max-width: 100%;
+        width: 100%;
+
+    }
+}
+@media (max-width: 1024px) {
+    .logo-container, .main-navigation {
+        flex-direction: column;
+        align-items: center;
+        max-width: 100%;
+        width: 100%;
+        padding: 0%;
+    }
 }

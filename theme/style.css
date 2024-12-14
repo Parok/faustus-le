@@ -12,19 +12,37 @@ Author: Your Name
 Description: A dark, atmospheric theme for Faustus Club.
 Version: 1.0
 */
+
+
 /* Basic Global Styles */
+
+html, body {
+    height: 100%; /* Full height for both html and body */
+    margin: 0; /* Remove default margin */
+    display: flex;
+    flex-direction: column; /* Stack header, main, footer vertically */
+}
+
 html {
+    font-size: 16px; /* 1rem = 16px */
     scroll-behavior: smooth;
 }
 
 body {
+    display: flex;
+    flex-direction: column; /* Stack header, main, and footer */
+    min-height: 100vh; /* Full viewport height */
     font-family: 'Lora', serif;
     color: #ddd;
     background-color: #0b0b0b;
     line-height: 1.8;
     overflow-x: hidden;
 }
-
+main {
+    flex: 1; /* Allows the main content to expand */
+    display: block; /* Ensure content behaves normally */
+    padding: 20px; /* Optional padding for content */
+}
 a {
     color: #c49b3a; /* Golden accent color */
     text-decoration: none;
@@ -77,3 +95,19 @@ h1, h2, h3 {
     z-index: -1;
 }
 
+
+/* Debugging Styles */
+/* Uncomment to visualize layout boundaries */
+/*
+body {
+    border: 2px solid red;
+}
+
+main {
+    border: 2px solid green;
+}
+
+.site-footer {
+    border: 2px solid blue;
+}
+*/

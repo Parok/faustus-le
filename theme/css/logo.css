@@ -1,25 +1,3 @@
-/* Logo Container Styling */
-.logo-container {
-    align-items: center;
-    position: relative;
-    overflow: hidden; /* Ensures nothing overflows */
-    border-radius: 12px ; /* Rounded corners only at the top */
-}
-
-
-/* Adjusted Pseudo-Element for Logo Container */
-.logo-container::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 10px; /* Adjust the height to fit within the container */
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7));
-    pointer-events: none;
-    z-index: 0; /* Ensure it stays behind the logo */
-    clip-path: inset(0 0 0 0 round 12px 12px 0 0); /* Apply border-radius to pseudo-element */
-}
 
 /* Logo Styling */
 .logo {
@@ -32,22 +10,20 @@
     z-index: 1; /* Ensure it's above the fog effect */
 }
 
-
-@media (max-width: 768px) {
-    .logo-container {
-        max-width: 80%;
-    }
+.logo-fog {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1; /* Below the logo */
 }
 
-@media (max-width: 480px) {
-    .logo-container {
-        max-width: 90%;
-    }
-}
 
 
 /* Fog Grid Overlay */
-.fog-grid {
+.fogCanvas {
     position: absolute;
     top: 0;
     left: 0;

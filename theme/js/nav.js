@@ -20,3 +20,30 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
+
+// narlowe quote rotation
+document.addEventListener('DOMContentLoaded', function () {
+    const quotes = document.querySelectorAll('.marlowe-quote');
+    
+    if (quotes.length === 0) {
+        console.error("No quotes found.");
+        return;
+    }
+
+    // Create a GSAP timeline to cycle through the quotes
+    const tl = gsap.timeline({ repeat: -1, repeatDelay: 2 });
+    quotes.forEach(quote => {
+        tl.to(quote, { 
+            opacity: 1, 
+            duration: 1, 
+            display: 'block', 
+            ease: 'power2.inOut'
+        })
+        .to(quote, { 
+            opacity: 0, 
+            duration: 1, 
+            display: 'none', 
+            ease: 'power2.inOut'
+        }, "+=3"); // Quote remains visible for 3 seconds
+    });
+});

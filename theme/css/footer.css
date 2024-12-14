@@ -1,32 +1,25 @@
-
-/* Footer Styling */
-footer {
-    padding: 50px;
-    background-image: url('../images/footer-background-baroque.webp');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    border-top: 1px solid rgba(255, 215, 0, 0.2);
+/* Styling for the footer */
+.site-footer {
+    background-color: #2b2b2b; /* Dark gray for a professional look */
+    padding: 20px 0; /* Top and bottom padding */
+    text-align: center; /* Center the text and links */
+    width: 100%; /* Ensure it spans the full width of the page */
+    color: #d4af37; /* Gold for links */
+    text-decoration: none;
+    transition: color 0.3s ease;
+    margin-top: auto; /* Push the footer to the bottom */
 }
 
-footer::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.95));
-    pointer-events: none;
-    opacity: 0.08;
-    z-index: -1;
+.site-footer a:hover {
+    color: #ffffff; /* White text on hover */
 }
 
-footer p, footer a {
-    color: #c49b3a;
-}
-
-footer a:hover {
-    color: #f5c000;
-    text-shadow: 0 0 3px rgba(255, 255, 255, 0.5);
+/* Responsive adjustments for footer links */
+@media (max-width: 768px) {
+    .site-footer {
+        padding: 15px 0;
+    }
+    .site-footer a {
+        font-size: 14px; /* Slightly smaller font size for smaller screens */
+    }
 }

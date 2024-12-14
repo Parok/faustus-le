@@ -2,24 +2,23 @@
 .main-navigation {
     justify-content: center;
     align-items: center;
-    padding: 20px 0;
+    padding: 0 0;
     background-color: rgba(0, 0, 0, 0.8);
     border: 2px solid #a3872d; /* Dark gold border */
     border-radius: 12px; /* Rounded corners only at the bottom */
     box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
     transition: all 0.3s ease-in-out;
-    margin-top: 1rem; /* Reduce space */
-    position: sticky;
+    margin: 1.5rem auto; /* Vertical spacing between logo and bubble */
     top: 0;
+    flex-wrap: wrap; /* Allows items to wrap on smaller screens */
+
 }
+
 /* Border and Shadow for the Navigation Bar on Hover */
 .main-navigation:hover {
     box-shadow: 0 0 20px rgba(212, 175, 55, 1), 0 0 30px rgba(212, 175, 55, 0.9);
 }
-.nav-link:hover {
-    color: #ffffff; /* Change text color on hover */
-    text-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 0 0 20px rgba(212, 175, 55, 1); /* Enhanced glow on hover */
-}
+
 /* Navigation Menu Styling */
 .nav-menu {
     list-style: none;
@@ -31,18 +30,25 @@
 
 /* Individual Navigation Links */
 .nav-link {
-    font-family: 'Playfair Display', serif;
     font-size: 22px; /* Increased font size for prominence */
     color: #d4af37;
     position: relative;
     text-decoration: none;
     transition: color 0.3s ease, text-shadow 0.3s ease;
     display: inline-block;
-    padding: 8px 15px; /* Added padding for better click area */
+    padding: 5px 10px; /* Added padding for better click area */
     text-shadow: 0 0 5px rgba(212, 175, 55, 0.7);
 }
 
+.nav-link:hover {
+    color: #ffffff; /* Change text color on hover */
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.7); /* Weniger starkes Leuchten */
+    /*text-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 0 0 20px rgba(212, 175, 55, 1); */
+}
 
+.nav-link:hover::after {
+    width: 100%;
+}
 
 /* Underline Effect */
 .nav-link::after {
@@ -57,45 +63,8 @@
     transform: translateX(-50%);
 }
 
-.nav-link:hover::after {
-    width: 100%;
-}
-
 /* Glowing Effect for Active Link */
 .nav-link.active {
     color: #ffffff;
     text-shadow: 0 0 12px rgba(255, 255, 255, 1), 0 0 25px rgba(212, 175, 55, 1);
-}
-
-
-
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-    .main-navigation {
-        padding: 15px;
-        border-radius: 8px;
-        margin-top: 1rem;
-    }
-
-    .nav-menu {
-        flex-direction: column;
-        gap: 15px;
-        align-items: center;
-    }
-
-    .nav-link {
-        font-size: 18px;
-    }
-}
-
-/* Glowing Border Effect for Smaller Screens */
-@media (max-width: 480px) {
-    .main-navigation {
-        border: 1px solid #a3872d;
-        padding: 10px;
-    }
-
-    .nav-link {
-        font-size: 16px;
-    }
 }
