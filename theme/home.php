@@ -22,8 +22,7 @@ get_header();
         <div class="intro-content">
 
 
-            <h1  style="font-family: 'Old English Text MT', serif;">
-                 Willkommen bei Dr Faustus</h1>
+            <h1>Willkommen bei Dr Faustus</h1>
             <p>Willkommen im Dr Faustus – DER Gothic-Szene-Bar im Herzen von Leipzig!</p>
             <p>Hier findet ihr einen Ort, an dem die Gothic-Szene mit Literatur und Kunst des 16. Jahrhunderts zusammentrifft, um mit Freunden oder auch alleine gemütliche Abende zu verbringen. Unsere Bar bietet eine einzigartige Atmosphäre, in der sich Geschichte und Gegenwart verbinden.</p>
             <p>Im von Goethes Faust dominierten Leipzig erinnern wir daran, dass der große deutsche Schriftsteller mit seinem „Faust“ zwar prägend war, aber nicht der erste Literat, der sich der Faustchronik von 1560 bedient hat. Mit unserem Namen ehren wir das erste Theaterstück von 1592/1593 des weltberühmten Christopher Marlowe und entführen unsere Gäste mit der Thematik, der Innenausstattung und den Kunstwerken in die Epoche der Renaissance.</p>

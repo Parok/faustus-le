@@ -33,7 +33,7 @@ h1, h2, h3, h4, h5, h6 {
     text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
 }
 p {
-    font-family: 'Libre Baskerville', serif;
+    font-family: 'Libre Baskerville', 'crimson text', serif;
     color: #d4d4d4;
     text-align: justify;
 
@@ -76,7 +76,6 @@ p {
 }
 
 .intro-section h1 {
-    font-family: 'Cinzel Decorative', serif;
     color: #ffd700;
     text-shadow: 0 0 8px rgba(255, 215, 0, 0.6);
 }
@@ -122,7 +121,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Typography */
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Old English Text MT', serif;
+    font-family: 'Old English Text MT', 'UnifrakturCook', 'Cinzel Decorative', serif;
     color: #f5e0c1;
     text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
 

@@ -10,12 +10,9 @@
         padding: 10px 0; /* Reduce padding for headers and footers */
     }
 
-    h1, h2, h3 {
-        font-size: 1.5rem; /* Adjust font size for headings */
-    }
-
     p {
-        font-size: 1rem; /* Adjust font size for paragraph text */
+        font-family: 'Crimson Text', 'Libre Baskerville', serif;
+        font-size: 1.2rem; /* Adjust font size for paragraph text */
         line-height: 1.5; /* Ensure good readability */
     }
 
@@ -26,4 +23,30 @@
     .intro-section {
         margin-bottom: 10px; /* Reduce margin for tighter spacing */
     }
+
+    .content-section {
+        padding: 10px; /* Adjust padding for smaller screens */
+        font-family:  "UniFrakturCook", "Cinzel Decorative", serif;
+
+    }
+
+    h1, h2, h3 {
+        font-family:   "UniFrakturCook", "Cinzel Decorative", serif;
+        font-size: 1.25rem;
+        color: #ffd700; /* Goldene Farbe passend zur Gothic-Ästhetik */
+        text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+        
+    }
+
+    footer .container {
+        flex-direction: column; /* Stack the links vertically */
+        
+        padding: 0 10px; /* Adjust padding for smaller screens */
+    }
+
+    footer .container p {
+        margin: 5px 0; /* Add margin between footer links */
+        font-size: 0.9rem; /* Slightly smaller font size for smaller screens */
+    }
+    
 }

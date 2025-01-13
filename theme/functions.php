@@ -16,10 +16,13 @@ function dr_faustus_enqueue_assets() {
 
     wp_enqueue_style('faustus-effects', get_template_directory_uri() . '/css/effects.css');
 
-    // Enqueue Google Font: Almendra SC
+    // enqueue Google Fonts
     wp_enqueue_style('almendra-sc', 'https://fonts.googleapis.com/css2?family=Almendra+SC&display=swap', array(), null);
     wp_enqueue_style('EB Garamond', 'https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600&display=swap', array(), null);
-
+    wp_enqueue_style('cinzel-decorative', 'https://fonts.googleapis.com/css2?family=Cinzel+Decorative&display=swap', array(), null);
+    wp_enqueue_style('unifraktur-cook', 'https://fonts.googleapis.com/css2?family=UnifrakturCook:opsz@32..48&display=swap', array(), null);
+    wp_enqueue_style('libre-baskerville', 'https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap', array(), null);
+    wp_enqueue_style('crimson-text', 'https://fonts.googleapis.com/css2?family=Crimson+Text&display=swap', array(), null);
 
     // Enqueue JavaScript files
     wp_enqueue_script('simplex-noise', 'https://cdn.jsdelivr.net/npm/simplex-noise@2.4.0/simplex-noise.min.js', array(), null, true);
