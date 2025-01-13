@@ -8,7 +8,6 @@
     border-radius: 10px;
     border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
-    min-height: 100%; /* Ensure it can stretch */
 
 
 }
@@ -36,6 +35,8 @@ h1, h2, h3, h4, h5, h6 {
 p {
     font-family: 'Libre Baskerville', serif;
     color: #d4d4d4;
+    text-align: justify;
+
 }
 /* Styling for the Content Box with Background Image */
 .box {
@@ -57,17 +58,76 @@ p {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.8);
 }
 
-/* Styling for the Entire Content Area */
+
+/* Content Area */
 .content-area {
-    background-color: rgba(0, 0, 0, 0.8); /* Dark overlay for better readability */
+    max-width: 50%;
+    min-width: 960px;
+    display: block;
+    margin: 1rem auto 0 auto; /* Center the content and add spacing */
+    background-color: rgba(0, 0, 0, 0.8); /* Dark overlay */
     border-radius: 15px;
+    padding: 20px 40px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7);
-    text-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
-    margin: 0px auto;
-    margin-top: 2rem; /* Push the content further down */
-    padding: 0 5%; /* Add horizontal padding for a consistent layout */
-    max-width: 1000px; /* Set a max width to center the content area */
 }
+.intro-section, .content-section {
+    margin-bottom: 1.0rem; /* Add more spacing below the intro section */
+    padding: 5px 20px; /* Add internal padding */
+}
+
+.intro-section h1 {
+    font-family: 'Cinzel Decorative', serif;
+    color: #ffd700;
+    text-shadow: 0 0 8px rgba(255, 215, 0, 0.6);
+}
+
+.intro-section p {
+    text-align: justify;
+}
+
+/* Content Sections */
+.content-section {
+    background-color: rgba(0, 0, 0, 0.75); /* Slightly transparent black */
+    border-radius: 10px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.6);
+}
+
+/* List Styling for Events */
+.event-list {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.event-list li {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 10px;
+}
+
+.event-list li::before {
+    content: '✔'; /* Custom bullet */
+    position: absolute;
+    left: 0;
+    color: #ffd700;
+    font-size: 1.2rem;
+}
+
+/* Typography 
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cinzel Decorative', serif;
+    color: #f5e0c1;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+}*/
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Old English Text MT', serif;
+    color: #f5e0c1;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+
+}
+
 
 /* Styling for Inner Elements */
 .post-meta, .post-content, .read-more {

@@ -2,7 +2,7 @@
 .quote-section {
     position: relative;
     max-width: 100%;
-    margin: 2rem auto;
+    margin: 4rem auto 0rem auto;
     padding: 20px 5%; /* Space for the bubble and lines */
     text-align: center;
     border-radius: 15px; /* Match the bubble's curves */
@@ -56,8 +56,10 @@
 .marlowe-quote {
     position: absolute;
     z-index: 2;
-    font-family: 'Crimson Text', serif;
-    font-size: 2rem;
+    font-family: 'Cinzel Decorative', serif;
+
+
+    font-size: 1.5rem;
     color: black; ;
     text-shadow: 2px 2px 4px rgba(249, 253, 16, 0.6);
     opacity: 0;

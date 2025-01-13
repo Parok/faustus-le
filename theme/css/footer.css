@@ -1,17 +1,36 @@
 /* Styling for the footer */
 .site-footer {
     background-color: #2b2b2b; /* Dark gray for a professional look */
-    padding: 20px 0; /* Top and bottom padding */
+    padding: 10px 0; /* Top and bottom padding */
+    margin: 0;
+    display: inline-block;
     text-align: center; /* Center the text and links */
     width: 100%; /* Ensure it spans the full width of the page */
     color: #d4af37; /* Gold for links */
     text-decoration: none;
     transition: color 0.3s ease;
-    margin-top: auto; /* Push the footer to the bottom */
+    line-height: 1.4rem;
+    z-index: 1000; /* Ensure it stays on top of other elements */
 }
 
+/* Change color on hover */
 .site-footer a:hover {
     color: #ffffff; /* White text on hover */
+}
+
+.site-footer p {
+    margin: 0; /* Remove default margin */
+}
+
+footer .container {
+    display: flex; /* Ensure content behaves normally */
+    flex-direction: column; /* Stack the links vertically */
+    flex: auto;
+    justify-content: space-between; /* Space out the links */
+    align-items: center; /* Center the content vertically */
+    align-self: bottom;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    padding: 0 20px; /* Add padding to the sides */
 }
 
 /* Responsive adjustments for footer links */

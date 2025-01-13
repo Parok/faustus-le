@@ -9,5 +9,6 @@
     endif;
     ?>
 </main>
-
-<?php get_footer(); ?>
+<footer class="site-footer">
+    <?php get_footer(); ?>
+</footer>

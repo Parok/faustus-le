@@ -8,12 +8,18 @@ function dr_faustus_enqueue_assets() {
 
     wp_enqueue_style('faustus-footer', get_template_directory_uri() . '/css/footer.css');
     wp_enqueue_style('faustus-content', get_template_directory_uri() . '/css/content.css');
+    wp_enqueue_style('faustus-content-res', get_template_directory_uri() . '/css/content-res.css');
+
     wp_enqueue_style('faustus-logo', get_template_directory_uri() . '/css/logo.css');
     wp_enqueue_style('faustus-marlowe', get_template_directory_uri() . '/css/marlowe.css');
     wp_enqueue_style('faustus-marlowe-res', get_template_directory_uri() . '/css/marlowe-res.css');
 
+    wp_enqueue_style('faustus-effects', get_template_directory_uri() . '/css/effects.css');
+
     // Enqueue Google Font: Almendra SC
     wp_enqueue_style('almendra-sc', 'https://fonts.googleapis.com/css2?family=Almendra+SC&display=swap', array(), null);
+    wp_enqueue_style('EB Garamond', 'https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600&display=swap', array(), null);
+
 
     // Enqueue JavaScript files
     wp_enqueue_script('simplex-noise', 'https://cdn.jsdelivr.net/npm/simplex-noise@2.4.0/simplex-noise.min.js', array(), null, true);

@@ -1,0 +1,55 @@
+
+/* Sparkling text effect for upcoming section*/
+@keyframes sparkle {
+    0%, 100% {
+        text-shadow: 0 0 5px #fff, 0 0 10px #ffd700, 0 0 15px #ffd700, 0 0 20px #ffd700;
+        color: #ffd700; /* Gold color */
+    }
+    50% {
+        text-shadow: 0 0 10px #fff, 0 0 20px #ffd700, 0 0 30px #ffd700, 0 0 40px #ffd700;
+        color: #ffffff; /* Brighter white */
+    }
+}
+
+.featured-event {
+    animation: sparkle 2s infinite; /* Sparkling effect repeats every 2 seconds */
+    font-weight: bold; /* Make it stand out */
+    color: #ffd700; /* Default gold color */
+    text-shadow: 0 0 5px #fff, 0 0 10px #ffd700, 0 0 15px #ffd700;
+}
+
+/* Styling für die Liste */
+.diablo-list {
+    list-style: none; /* Entfernt die Standard-Bullets */
+    padding-left: 0; /* Entfernt den Standard-Einzug */
+}
+
+.diablo-list li {
+
+    
+    position: relative;
+    padding-left: 30px; /* Platz für das Symbol schaffen */
+    margin-bottom: 10px; /* Abstand zwischen den Punkten */
+    color: #d4af37; /* Goldene Farbe für Text */
+    font-family: 'Cinzel Decorative', serif; /* Optional für Gothic-Stil */
+}
+
+/* Symbol hinzufügen */
+.diablo-list li::before, .featured-event::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    
+    background-image: url("../images/cross.webp"); /* Pfad zum Symbolbild */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 1; /* Vollständig sichtbar */
+}
+
+.diablo-list li::before {
+    width: 20px; /* Größe des Symbols */
+    height: 20px; /* Größe des Symbols */
+}
