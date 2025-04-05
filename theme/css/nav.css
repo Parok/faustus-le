@@ -42,9 +42,10 @@
 
 .nav-link:hover {
     color: #ffffff; /* Change text color on hover */
-    text-shadow: 0 0 10px rgba(212, 175, 55, 0.7); /* Weniger starkes Leuchten */
-    /*text-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 0 0 20px rgba(212, 175, 55, 1); */
+    /*text-shadow: 0 0 10px rgba(212, 175, 55, 0.7); /* Weniger starkes Leuchten */
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 0 0 20px rgba(212, 175, 55, 1); */
 }
+
 
 .nav-link:hover::after {
     width: 100%;
@@ -67,4 +68,12 @@
 .nav-link.active {
     color: #ffffff;
     text-shadow: 0 0 12px rgba(255, 255, 255, 1), 0 0 25px rgba(212, 175, 55, 1);
+}
+
+.nav-font {
+    font-family: 'Almendra SC', 'UnifrakturCook', serif;
+    font-weight: lighter;
+    font-size: 1.2rem;
+    color: #d4af37;
+    text-shadow: 0 0 5px rgba(212, 175, 55, 0.7);
 }

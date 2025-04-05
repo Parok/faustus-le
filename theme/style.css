@@ -103,7 +103,143 @@ p {
     z-index: -1;
 }
 
+/* ====================
+   Events Page
+   ==================== */
+   .events-section {
+    margin-top: 3rem;
+  }
+  
+  .events-title {
+    font-family: 'UnifrakturCook', serif;
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .event-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  .event-item::before {
+    content: "♢ Wave is not dead ♢";
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.05);
+    pointer-events: none;
+    font-family: 'Cinzel', serif;
+  }
+  
+  .event-img {
+    width: 16em;
+    object-fit: cover;
+    border: 1px solid #333;
+    filter: grayscale(100%);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    flex-shrink: 0;
+  }
+  
+    
+  .event-img:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 15px rgba(150, 120, 220, 0.4);
+    filter: grayscale(40%);
+    z-index: 2;
+  }
+  .event-info h2 {
+    margin: 0;
+    font-size: 1.4rem;
+    font-family: 'Cinzel', serif;
+    color: #d6c1a3;
+  }
+  
+  .event-info p {
+    margin-top: 0.5rem;
+    font-size: 1rem;
+    color: #ccc;
+    max-width: 600px;
+  }
+  .event-deco {
+    font-style: italic;
+    color: #c49b3a;
+    text-shadow: 0 0 5px rgba(245, 192, 0, 0.2);
+    white-space: nowrap;
+  }
+  .event-reprise {
+    display: block;
+    margin-top: 1rem;
+    padding: 0.4rem 0.8rem;
+    font-style: italic;
+    font-size: 1.02rem;
+    color: #cfd8e5;
+    background: rgba(255, 255, 255, 0.01);
+    border-left: 2px solid rgba(160, 190, 240, 0.15);
+    text-shadow:
+      0 0 4px rgba(180, 220, 255, 0.08),
+      0 0 10px rgba(160, 200, 255, 0.04);
+    box-shadow: none;
+    letter-spacing: 0.4px;
+    border-radius: 3px;
+    opacity: 0.85;
+    transition: text-shadow 0.3s ease, opacity 0.3s ease;
+  }
+  
+  .event-reprise:hover {
+    opacity: 1;
+    text-shadow:
+      0 0 6px rgba(190, 240, 255, 0.15),
+      0 0 12px rgba(160, 220, 255, 0.08);
+  }
+  
 
+ /* ================
+   Responsive: Events Section Gothic Mobile
+   ================ */
+@media (max-width: 768px) {
+    .event-item {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 1rem;
+    }
+  
+    .event-img {
+      width: 100%;
+      max-width: 260px;
+      height: auto;
+      border-radius: 4px;
+      filter: grayscale(80%) brightness(1.1);
+      box-shadow: 0 0 20px rgba(180, 0, 255, 0.1);
+    }
+  
+    .event-img:hover {
+      transform: scale(1.04) rotate(-1deg);
+      box-shadow: 0 0 25px rgba(180, 0, 255, 0.25);
+      filter: grayscale(40%) brightness(1.2);
+    }
+  
+    .event-info h2 {
+      font-size: 1.2rem;
+      margin-top: 1rem;
+    }
+  
+    .event-info p {
+      font-size: 0.95rem;
+      padding: 0 1rem;
+    }
+  
+    .events-title {
+      font-size: 2rem;
+      padding: 0 1rem;
+    }
+  }
+   
+
+  
 /* Debugging Styles */
 /* Uncomment to visualize layout boundaries */
 /*

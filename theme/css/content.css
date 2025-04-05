@@ -26,14 +26,8 @@
     z-index: -1; /* Keeps it behind the content */
 }
 
-/* Typography */
-h1, h2, h3, h4, h5, h6 {
-    font-family: 'Cinzel Decorative', serif;
-    color: #f5e0c1;
-    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
-}
 p {
-    font-family: 'Libre Baskerville', 'crimson text', serif;
+    font-family: 'Libre Baskerville', 'Crimson Text', 'Georgia', 'Times New Roman', serif;
     color: #d4d4d4;
     text-align: justify;
 
@@ -121,7 +115,8 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Typography */
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Old English Text MT', 'UnifrakturCook', 'Cinzel Decorative', serif;
+    /*font-family: 'Old English Text MT', 'UnifrakturCook', 'Cinzel Decorative', serif;*/
+    font-family: 'Old English Text MT', 'Almendra SC', 'UnifrakturCook', 'Cinzel Decorative','Georgia', 'Times New Roman', serif;
     color: #f5e0c1;
     text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
 
@@ -148,4 +143,143 @@ h1, h2, h3, h4, h5, h6 {
 .read-more:hover {
     background-color: #f5c000;
     color: #000;
+}
+.opening-hours {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-family: inherit;
+    max-width: 300px;
+}
+
+.opening-hours div {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Überschrift im Marlowe-Stil */
+.marlowe-heading {
+    font-family: 'Almendra SC', serif; /* Oder deine gewählte Schrift */
+    font-size: 2rem;
+    color: #ffd700;
+    text-align: center;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
+    margin-bottom: 20px;
+}
+
+/* Wrapper um das PDF */
+.pdf-embed-wrapper {
+    background: rgba(0, 0, 0, 0.75);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
+    margin: 20px auto;
+    max-width: 800px;
+}
+
+/* Download-Link */
+.pdf-download-link {
+    font-family: 'EB Garamond', serif; /* Passend zu deinem Fließtext */
+    font-size: 1.2rem;
+    color: #d4af37;
+    text-align: center;
+    margin-top: 15px;
+    text-shadow: 0 0 5px rgba(212, 175, 55, 0.6);
+}
+.pdf-download-link a {
+    color: #ffd700;
+    text-decoration: none;
+    font-weight: bold;
+}
+.pdf-download-link a:hover {
+    color: #ffffff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+.pdf-preview {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.btn-popup {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #ffd700; /* Gold */
+    border: none;
+    border-radius: 5px;
+    color: black;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-popup:hover {
+    background-color: #e0c200; /* Slightly darker gold */
+}
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal-content {
+    position: relative;
+    margin: auto;
+    width: 90%;
+    height: 90%;
+    background: transparent;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    color: white;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.pdf-container {
+    width: 100%;
+    max-width: 900px; /* Set a maximum width for large screens */
+    margin: 0 auto; /* Center the viewer horizontally */
+}
+
+.pdf-embed {
+    width: 100%; /* Make iframe take the container's width */
+    height: 700px; /* Adjust height as needed */
+    border: none; /* Remove border for a clean look */
+}
+
+#flipbook {
+    position: relative;
+    max-width: 800px;
+    margin: 20px auto;
+    text-align: center;
+    overflow: hidden; /* Ensure image stays within bounds */
+    border: 0px solid #ffd700;
+    border-radius: 5px;
+    display: none; /* Hide the flipbook by default */
+}
+
+
+#flipbook-image.flip-left {
+    transform-origin: center right;
+    transition: transform 0.6s ease-in-out, opacity 0.6s ease-in-out;
+    transform: rotateY(-180deg);
+    opacity: 0;
+}
+
+#flipbook-image.flip-right {
+    transform-origin: center left;
+    transition: transform 0.6s ease-in-out, opacity 0.6s ease-in-out;
+    transform: rotateY(-180deg);
+    opacity: 0;
 }

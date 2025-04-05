@@ -16,21 +16,15 @@ function dr_faustus_enqueue_assets() {
 
     wp_enqueue_style('faustus-effects', get_template_directory_uri() . '/css/effects.css');
 
-    // enqueue Google Fonts
-    wp_enqueue_style('almendra-sc', 'https://fonts.googleapis.com/css2?family=Almendra+SC&display=swap', array(), null);
-    wp_enqueue_style('EB Garamond', 'https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600&display=swap', array(), null);
-    wp_enqueue_style('cinzel-decorative', 'https://fonts.googleapis.com/css2?family=Cinzel+Decorative&display=swap', array(), null);
-    wp_enqueue_style('unifraktur-cook', 'https://fonts.googleapis.com/css2?family=UnifrakturCook:opsz@32..48&display=swap', array(), null);
-    wp_enqueue_style('libre-baskerville', 'https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap', array(), null);
-    wp_enqueue_style('crimson-text', 'https://fonts.googleapis.com/css2?family=Crimson+Text&display=swap', array(), null);
-
     // Enqueue JavaScript files
     wp_enqueue_script('simplex-noise', 'https://cdn.jsdelivr.net/npm/simplex-noise@2.4.0/simplex-noise.min.js', array(), null, true);
     wp_enqueue_script('fog-effect', get_template_directory_uri() . '/js/fog-effect.js', array(), null, true);
+    wp_enqueue_script('flipbook', get_template_directory_uri() . '/js/flipbook.js', array(), null, true);
 
     // Load GSAP only on the homepage
     wp_enqueue_script('gsap', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js', array(), null, true);
     wp_enqueue_script('nav-js', get_template_directory_uri() . '/js/nav.js', array('gsap'), null, true);
+
  
 }
 add_action('wp_enqueue_scripts', 'dr_faustus_enqueue_assets');
@@ -50,6 +44,18 @@ function dr_faustus_theme_setup() {
     add_theme_support('custom-logo');
     add_theme_support('html5', array('search-form', 'comment-form', 'comment-list', 'gallery', 'caption'));
 }
+
 add_action('after_setup_theme', 'dr_faustus_theme_setup');
+
+function faustus_enqueue_fog_scripts() {
+    // SimplexNoise per CDN
+    wp_enqueue_script('simplex-noise', 'https://cdn.jsdelivr.net/npm/simplex-noise@3.0.1/simplex-noise.min.js', array(), null, true);
+
+    // Dein Nebel-Effekt (wird NACH der Library geladen)
+    wp_enqueue_script('fog-effect', get_template_directory_uri() . '/js/fog-effect.js', array('simplex-noise'), null, true);
+}
+add_action('wp_enqueue_scripts', 'faustus_enqueue_fog_scripts');
+
+
 
 ?>

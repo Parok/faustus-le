@@ -15,7 +15,7 @@
     position: absolute;
     left: 0;
     right: 0;
-    height: 2px; /* Line thickness */
+    height: 2px; 
     background: linear-gradient(to right, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.1));
 }
 
@@ -38,7 +38,6 @@
     border-radius: 20px;
     box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 255, 255, 0.2);
 }
-
 /* Oval Fog */
 .oval-fog {
     position: absolute;
@@ -52,16 +51,52 @@
     z-index: -1; /* Behind the bubble */
 }
 
+/* Keyframes for glowing animation */
+@keyframes glowing {
+    0% {
+        color: #ffd700; /* Yellowish color */
+        text-shadow: 2px 2px 8px rgba(255, 215, 0, 0.8),
+                     0 0 10px rgba(255, 215, 0, 0.5),
+                     0 0 20px rgba(255, 165, 0, 0.3);
+    }
+    40% {
+        color: #ffd700; /* Yellowish color */
+        text-shadow: 2px 2px 8px rgba(255, 215, 0, 0.8),
+                     0 0 10px rgba(255, 215, 0, 0.5),
+                     0 0 20px rgba(255, 165, 0, 0.3);
+    }
+    100% {
+        color: #ffffff; /* White color */
+        text-shadow: 2px 2px 8px rgba(255, 255, 255, 0.8),
+                     0 0 10px rgba(255, 255, 255, 0.5),
+                     0 0 20px rgba(255, 255, 255, 0.3);
+                     
+    }
+ 
+}
+
 /* Marlowe Quote Text */
 .marlowe-quote {
     position: absolute;
     z-index: 2;
-    font-family: 'Cinzel Decorative', serif;
-
-
-    font-size: 1.5rem;
-    color: black; ;
-    text-shadow: 2px 2px 4px rgba(249, 253, 16, 0.6);
     opacity: 0;
-    transition: opacity 1.5s ease-in-out;
-} 
+    transition: opacity 4.5s ease-in-out;
+
+    font-family: 'Almendra SC', 'UnifrakturCook', serif;
+    font-size: 1.5rem;
+    font-weight: 300;
+    animation: glowing 4.5s 1 ; /* Apply the glowing animation */
+    animation-fill-mode: forwards;
+
+    
+}
+
+.marlowe-text-moonlight  {
+    padding: 0.5rem 2rem; /* Internal padding for text */
+    text-align: center;
+    color: #ffffff; /* White color */
+    text-shadow: 2px 2px 8px rgba(255, 255, 255, 0.8),
+                 0 0 10px rgba(255, 255, 255, 0.5),
+                 0 0 20px rgba(255, 255, 255, 0.3);
+                 
+}

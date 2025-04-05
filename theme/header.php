@@ -8,6 +8,8 @@
 <body <?php body_class(); ?>>
 
 <header class="site-header header-background">
+
+
         <div class="logo-container">
            <img src="<?php echo get_template_directory_uri(); ?>/images/faustus-logo.jpeg" alt="Faustus Logo" class="logo">
 
@@ -16,6 +18,7 @@
 
         </div>
 
+
         <!-- Main Navigation -->
         <nav class="main-navigation">
             <?php
@@ -23,7 +26,7 @@
                 'theme_location' => 'main-menu',
                 'container' => false,
                 'menu_class' => 'nav-menu',
-                'link_before' => '<span class="nav-link">',
+                'link_before' => '<span class="nav-link nav-font">',
                 'link_after' => '</span>',
             ));
             ?> 
