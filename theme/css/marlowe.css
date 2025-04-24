@@ -27,17 +27,6 @@
     bottom: 0; /* Line below the bubble */
 }
 
-/* Bubble Container */
-.quote-container {
-    display: flex;
-    position: relative;
-    align-items: center;
-    justify-content: center;
-    padding: 20px 30px; /* Internal padding for text */
-    background: rgba(50, 50, 70, 0.1);
-    border-radius: 20px;
-    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 255, 255, 0.2);
-}
 /* Oval Fog */
 .oval-fog {
     position: absolute;
@@ -49,6 +38,44 @@
     border-radius: 50%;
     pointer-events: none;
     z-index: -1; /* Behind the bubble */
+}
+
+
+
+/* Bubble Container */
+.quote-container {
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 30px; /* Internal padding for text */
+    background: rgba(50, 50, 70, 0.1);
+    border-radius: 20px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 255, 255, 0.2);
+}
+/* Marlowe Quote Text */
+.marlowe-quote {
+    position: absolute;
+    z-index: 2;
+    opacity: 0;
+    transition: opacity 4.5s ease-in-out;
+
+    font-family: 'Almendra SC', 'UnifrakturCook', serif;
+    font-size: 1.8rem;
+    line-height: 1.6;
+    font-weight: 300;
+    animation: glowing 4.5s 1 ; /* Apply the glowing animation */
+    animation-fill-mode: forwards;
+}
+
+.marlowe-text-moonlight  {
+    padding: 0.5rem 2rem; /* Internal padding for text */
+    text-align: center;
+    color: #ffffff; /* White color */
+    text-shadow: 2px 2px 8px rgba(255, 255, 255, 0.8),
+                 0 0 10px rgba(255, 255, 255, 0.5),
+                 0 0 20px rgba(255, 255, 255, 0.3);
+                 
 }
 
 /* Keyframes for glowing animation */
@@ -73,30 +100,4 @@
                      
     }
  
-}
-
-/* Marlowe Quote Text */
-.marlowe-quote {
-    position: absolute;
-    z-index: 2;
-    opacity: 0;
-    transition: opacity 4.5s ease-in-out;
-
-    font-family: 'Almendra SC', 'UnifrakturCook', serif;
-    font-size: 1.5rem;
-    font-weight: 300;
-    animation: glowing 4.5s 1 ; /* Apply the glowing animation */
-    animation-fill-mode: forwards;
-
-    
-}
-
-.marlowe-text-moonlight  {
-    padding: 0.5rem 2rem; /* Internal padding for text */
-    text-align: center;
-    color: #ffffff; /* White color */
-    text-shadow: 2px 2px 8px rgba(255, 255, 255, 0.8),
-                 0 0 10px rgba(255, 255, 255, 0.5),
-                 0 0 20px rgba(255, 255, 255, 0.3);
-                 
 }

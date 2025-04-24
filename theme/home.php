@@ -4,10 +4,24 @@
  */
 get_header(); 
 
-?> 
+?>  
 
 <main class="content-area container content-text">
-
+<!-- Section 0: Featured Event https://faustus.club/wp-content/uploads/2025/04/20250427_event.jpg-->
+    <section class="featured-event">
+       
+        <div class="event-text">
+            <h2>Im Bann...</h2>
+            <p><strong>Lesungen im Dr. Faustus</strong></p>
+            <ul>
+            <li><strong>27.04.2025</strong> – 17 Uhr</li>
+            <li><strong>06.06.2025</strong> – 15 Uhr</li>
+            </ul>
+        </div>
+        <div class="event-image">
+            <img src="https://faustus.club/wp-content/uploads/2025/04/20250427_event.jpg" alt="Im Bann... Lesungen">
+        </div>
+    </section>
     <!-- Section A: Introduction -->
     <section class="intro-section content-section">
 

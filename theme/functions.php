@@ -15,6 +15,8 @@ function dr_faustus_enqueue_assets() {
     wp_enqueue_style('faustus-marlowe-res', get_template_directory_uri() . '/css/marlowe-res.css');
 
     wp_enqueue_style('faustus-effects', get_template_directory_uri() . '/css/effects.css');
+    wp_enqueue_style('faustus-featured-event', get_template_directory_uri() . '/css/featured-event.css');
+
 
     // Enqueue JavaScript files
     wp_enqueue_script('simplex-noise', 'https://cdn.jsdelivr.net/npm/simplex-noise@2.4.0/simplex-noise.min.js', array(), null, true);
