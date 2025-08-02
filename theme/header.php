@@ -9,7 +9,6 @@
 
 <header class="site-header header-background">
 
-
         <div class="logo-container">
            <img src="<?php echo get_template_directory_uri(); ?>/images/faustus-logo.jpeg" alt="Faustus Logo" class="logo">
 
@@ -18,9 +17,14 @@
 
         </div>
 
+        <div class="nav-wrapper">
+          <nav class="main-navigation">
+            <!-- Hamburger Toggle -->
+            <button class="menu-toggle" aria-label="Menü öffnen">
+              ☰
+            </button>
 
-        <!-- Main Navigation -->
-        <nav class="main-navigation">
+            <!-- Navigation -->
             <?php
             wp_nav_menu(array(
                 'theme_location' => 'main-menu',
@@ -30,7 +34,8 @@
                 'link_after' => '</span>',
             ));
             ?> 
-        </nav>
+          </nav>
+        </div>
 
         <!-- Marlowe Quotes with Fog Background -->
         <div class="quote-section">

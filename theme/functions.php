@@ -21,7 +21,11 @@ function dr_faustus_enqueue_assets() {
     // Enqueue JavaScript files
     wp_enqueue_script('simplex-noise', 'https://cdn.jsdelivr.net/npm/simplex-noise@2.4.0/simplex-noise.min.js', array(), null, true);
     wp_enqueue_script('fog-effect', get_template_directory_uri() . '/js/fog-effect.js', array(), null, true);
-    wp_enqueue_script('flipbook', get_template_directory_uri() . '/js/flipbook.js', array(), null, true);
+
+    // Conditionally load flipbook.js
+    if (is_page('menu')) {
+        wp_enqueue_script('flipbook', get_template_directory_uri() . '/js/flipbook.js', array(), null, true);
+    }
 
     // Load GSAP only on the homepage
     wp_enqueue_script('gsap', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js', array(), null, true);

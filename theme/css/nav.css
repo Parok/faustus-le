@@ -23,27 +23,27 @@
 .nav-menu {
     list-style: none;
     display: flex;
-    gap: 30px; /* Adjusted gap for a more compact layout */
+    gap: 30px;
     margin: 0;
     padding: 0;
+    flex-direction: row;
 }
 
 /* Individual Navigation Links */
 .nav-link {
-    font-size: 22px; /* Increased font size for prominence */
+    font-size: 22px;
     color: #d4af37;
     position: relative;
     text-decoration: none;
     transition: color 0.3s ease, text-shadow 0.3s ease;
     display: inline-block;
-    padding: 5px 10px; /* Added padding for better click area */
+    padding: 5px 10px;
     text-shadow: 0 0 5px rgba(212, 175, 55, 0.7);
 }
 
 .nav-link:hover {
-    color: #ffffff; /* Change text color on hover */
-    /*text-shadow: 0 0 10px rgba(212, 175, 55, 0.7); /* Weniger starkes Leuchten */
-    text-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 0 0 20px rgba(212, 175, 55, 1); */
+    color: #ffffff;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 0 0 20px rgba(212, 175, 55, 1);
 }
 
 
@@ -76,4 +76,21 @@
     font-size: 1.2rem;
     color: #d4af37;
     text-shadow: 0 0 5px rgba(212, 175, 55, 0.7);
+}
+
+/* Menu Toggle Button Styling */
+.menu-toggle {
+    display: block;
+    margin: 0;
+    text-align: center;
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #d4af37;
+    transition: color 0.3s ease;
+}
+
+.menu-toggle:hover {
+    color: #ffffff;
 }
