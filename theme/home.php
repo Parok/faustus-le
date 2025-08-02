@@ -7,21 +7,26 @@ get_header();
 ?>  
 
 <main class="content-area container content-text">
+    <div class="ornament-full">
+        <img src="https://faustus.club/wp-content/uploads/2025/05/ornament-e1746565639685.png" alt="Ornament Dekor" />
+    </div>
+
 <!-- Section 0: Featured Event https://faustus.club/wp-content/uploads/2025/04/20250427_event.jpg-->
+
+    <hr class="faustus-separator" />
+
     <section class="featured-event">
-       
-        <div class="event-text">
-            <h2>Im Bann...</h2>
-            <p><strong>Lesungen im Dr. Faustus</strong></p>
-            <ul>
-            <li><strong>27.04.2025</strong> – 17 Uhr</li>
-            <li><strong>06.06.2025</strong> – 15 Uhr</li>
-            </ul>
-        </div>
-        <div class="event-image">
-            <img src="https://faustus.club/wp-content/uploads/2025/04/20250427_event.jpg" alt="Im Bann... Lesungen">
+        <div class="featured-banner">
+            <img src="https://faustus.club/wp-content/uploads/2025/06/fs_outside.jpg" alt="" class="featured-image" />
+
+            <div class="event-text">
+                <h2>Sommer</h2>
+                <p><strong>täglich ab 18:00 Uhr Freisitz mit ca. 20 Sitzplätzen</strong></p>
+            </div>
         </div>
     </section>
+    <hr class="faustus-separator" />
+
     <!-- Section A: Introduction -->
     <section class="intro-section content-section">
 

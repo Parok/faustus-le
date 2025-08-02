@@ -1,19 +1,230 @@
 .featured-event {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #111; /* oder transparent */
-    color: #e0dcd4;
-    padding: 3rem 1rem;
-    text-align: center;
-  }
-  
-  .event-image img {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #000;
+  color: #ccc;
+  padding: 2rem 2rem;
+  /* etwas mehr links & rechts */
+  text-align: center;
+  border: none;
+  max-width: 900px;
+  /* war 800px */
+  margin: 0 auto;
+  box-sizing: border-box;
+  /* wichtig */
+  width: 100%;
+  /* füllt container bis max-width */
+}
+
+.featured-event .featured-banner .event-text p {
+  margin-top: 1rem;
+  padding: 0 1rem;
+  /* falls der Text an sehr kleinen Screens am Rand klebt */
+  max-width: 100%;
+  /* damit der Text nicht über den Rand hinausgeht */
+  overflow-wrap: break-word;
+  /* damit lange Wörter umgebrochen werden */
+  word-wrap: break-word;
+  /* damit lange Wörter umgebrochen werden */
+  word-break: break-word;
+  text-align: center;  
+}
+
+
+.event-image img {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid #444;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+  border-radius: 6px;
+  margin-bottom: 1.5rem;
+}
+
+.featured-banner {
+  position: relative;
+  text-align: center;
+  margin: auto auto;
+  max-width: 100%;
+}
+
+.featured-banner img.featured-image {
+  width: 30rem;
+  height: auto;
+  border: 2px solid #111;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+}
+
+.featured-caption {
+  margin-top: 1rem;
+  font-family: 'Cinzel', serif;
+  color: #ccc;
+  font-size: 1.2rem;
+  text-shadow: 0 0 5px #000;
+  text-align: center;
+}
+
+.featured-event-rip {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #000;
+  color: #ccc;
+  padding: 2rem 2rem;
+  /* etwas mehr links & rechts */
+  text-align: center;
+  border: none;
+  max-width: 900px;
+  /* war 800px */
+  margin: 0 auto;
+  box-sizing: border-box;
+  /* wichtig */
+  width: 100%;
+  /* füllt container bis max-width */
+}
+
+.featured-event-rip .featured-banner img.featured-image {
+  width: 100%;
+  max-width: 500px;
+  /* war 400px — etwas größer */
+  height: auto;
+  border: 1px solid #333;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.85);
+  filter: grayscale(100%) brightness(0.85);
+  transition: box-shadow 0.4s ease, filter 0.4s ease;
+}
+
+
+.featured-event-rip .featured-banner img.featured-image:hover {
+  filter: grayscale(0%) brightness(1);
+  box-shadow: 0 0 40px rgba(255, 255, 255, 0.5);
+}
+
+.featured-event-rip .event-text {
+  margin-top: 1rem;
+  padding: 0 1rem;
+  /* falls der Text an sehr kleinen Screens am Rand klebt */
+  max-width: 100%;
+}
+
+.featured-event-rip .event-text h2 {
+  font-size: 1.8rem;
+  color: #d6cfa1;
+  text-align: center;
+  text-shadow:
+    0 0 4px #444,
+    0 0 8px #333,
+    0 0 12px #111;
+  margin-bottom: 0.5rem;
+}
+
+.featured-event-rip .event-text p {
+  font-size: 1rem;
+  line-height: 1.4;
+  color: #ccc;
+  text-align: center;
+  text-shadow:
+    0 0 4px #444,
+    0 0 8px #222;
+  margin: 0.3rem 0;
+  /* weniger Abstand */
+}
+
+.featured-event-rip .event-text p strong {
+  color: #e0dcd4;
+  text-shadow:
+    0 0 4px #555,
+    0 0 10px #333;
+}
+
+
+.featured-event-rip .event-text h2 {
+  font-size: 2.2rem;
+  color: #d6cfa1;
+  text-shadow:
+    0 0 10px #444,
+    0 0 20px #444,
+    0 0 30px #222;
+  margin-bottom: 1rem;
+}
+
+.featured-event-rip .event-text p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #ccc;
+  text-shadow:
+    0 0 6px #333,
+    0 0 10px #111;
+}
+
+.featured-event-rip .event-text p strong {
+  color: #e0dcd4;
+  text-shadow:
+    0 0 6px #555,
+    0 0 12px #333;
+}
+
+.faustus-separator {
+  border: none;
+  height: 2px;
+  background: linear-gradient(to right, transparent, #d6cfa1, transparent);
+  box-shadow: 0 0 10px #d6cfa1;
+  margin: 3rem auto;
+  width: 60%;
+}
+
+.ornament-full {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0.5rem auto 1.5rem;
+  /* Sehr wenig Abstand oben & unten */
+}
+
+.ornament-full img {
+  width: clamp(160px, 20vw, 300px);
+  height: auto;
+  opacity: 0.85;
+  filter: drop-shadow(0 0 4px #000) brightness(1.1);
+  transition: transform 0.4s ease;
+}
+
+
+.ornament-full img:hover {
+  transform: scale(1.05);
+}
+
+@media (max-width: 600px) {
+
+  /* General Featured Event */
+  .featured-event,
+  .featured-event-rip {
+    padding: 1.5rem 1rem;
     max-width: 100%;
-    height: auto;
-    border: 1px solid #444;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
-    border-radius: 6px;
-    margin-bottom: 1.5rem;
   }
-  
+
+  .featured-event .featured-banner img.featured-image,
+  .featured-event-rip .featured-banner img.featured-image {
+    max-width: 90%;
+    width: 100%;
+  }
+
+  .featured-event .event-text h2,
+  .featured-event-rip .event-text h2 {
+    font-size: 1.4rem;
+  }
+
+  .featured-event .event-text p,
+  .featured-event-rip .event-text p {
+    font-size: 0.95rem;
+  }
+
+  .section-title-featured {
+    font-size: 1.2rem;
+  }
+
+  .ornament-full img {
+    width: clamp(180px, 50vw, 320px);
+  }
+}
