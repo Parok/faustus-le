@@ -1,96 +1,77 @@
-/* Navigation Bar Styling */
+/* =======================================
+   ✦ FAUSTUS CLUB – Navigation Base (Desktop)
+   File: nav.css
+========================================= */
+
 .main-navigation {
-    justify-content: center;
-    align-items: center;
-    padding: 0 0;
-    background-color: rgba(0, 0, 0, 0.8);
-    border: 2px solid #a3872d; /* Dark gold border */
-    border-radius: 12px; /* Rounded corners only at the bottom */
-    box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
-    transition: all 0.3s ease-in-out;
-    margin: 1.5rem auto; /* Vertical spacing between logo and bubble */
-    top: 0;
-    flex-wrap: wrap; /* Allows items to wrap on smaller screens */
-
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 1.5rem auto;
+  padding: 0.75rem 2rem;
+  background-color: rgba(0, 0, 0, 0.8);
+  border: 2px solid #a3872d;
+  border-radius: 0 0 12px 12px;
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  z-index: 1000;
+  text-align: center;
 }
 
-/* Border and Shadow for the Navigation Bar on Hover */
 .main-navigation:hover {
-    box-shadow: 0 0 20px rgba(212, 175, 55, 1), 0 0 30px rgba(212, 175, 55, 0.9);
+  box-shadow: 0 0 20px rgba(212, 175, 55, 1), 0 0 30px rgba(212, 175, 55, 0.9);
 }
 
-/* Navigation Menu Styling */
 .nav-menu {
-    list-style: none;
-    display: flex;
-    gap: 30px;
-    margin: 0;
-    padding: 0;
-    flex-direction: row;
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 2.5rem;
+  margin: 0;
+  padding: 0;
 }
 
-/* Individual Navigation Links */
-.nav-link {
-    font-size: 22px;
-    color: #d4af37;
-    position: relative;
-    text-decoration: none;
-    transition: color 0.3s ease, text-shadow 0.3s ease;
-    display: inline-block;
-    padding: 5px 10px;
-    text-shadow: 0 0 5px rgba(212, 175, 55, 0.7);
+.nav-menu li a {
+  font-size: 1.4rem;
+  font-family: 'Almendra SC', 'UnifrakturCook', serif;
+  color: #d4af37;
+  text-decoration: none;
+  position: relative;
+  padding: 5px 10px;
+  text-shadow: 0 0 5px rgba(212, 175, 55, 0.7);
+  transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 
-.nav-link:hover {
-    color: #ffffff;
-    text-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 0 0 20px rgba(212, 175, 55, 1);
+.nav-menu li a:hover {
+  color: #ffffff;
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 0 0 20px rgba(212, 175, 55, 1);
 }
 
-
-.nav-link:hover::after {
-    width: 100%;
+.nav-menu li a::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -6px;
+  width: 0;
+  height: 2px;
+  background-color: #d4af37;
+  transition: all 0.4s ease-in-out;
+  transform: translateX(-50%);
 }
 
-/* Underline Effect */
-.nav-link::after {
-    content: '';
-    position: absolute;
-    left: 50%;
-    bottom: -6px;
-    width: 0;
-    height: 2px;
-    background-color: #d4af37;
-    transition: all 0.4s ease-in-out;
-    transform: translateX(-50%);
+.nav-menu li a:hover::after {
+  width: 100%;
 }
 
-/* Glowing Effect for Active Link */
-.nav-link.active {
-    color: #ffffff;
-    text-shadow: 0 0 12px rgba(255, 255, 255, 1), 0 0 25px rgba(212, 175, 55, 1);
+.nav-menu li.current-menu-item a {
+  color: #ffffff;
+  text-shadow: 0 0 12px rgba(255, 255, 255, 1), 0 0 25px rgba(212, 175, 55, 1);
 }
 
-.nav-font {
-    font-family: 'Almendra SC', 'UnifrakturCook', serif;
-    font-weight: lighter;
-    font-size: 1.2rem;
-    color: #d4af37;
-    text-shadow: 0 0 5px rgba(212, 175, 55, 0.7);
-}
-
-/* Menu Toggle Button Styling */
 .menu-toggle {
-    display: block;
-    margin: 0;
-    text-align: center;
-    font-size: 24px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: #d4af37;
-    transition: color 0.3s ease;
-}
-
-.menu-toggle:hover {
-    color: #ffffff;
+  display: none; /* Desktop: versteckt */
 }

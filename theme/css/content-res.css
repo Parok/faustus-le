@@ -1,52 +1,29 @@
 @media (max-width: 768px) {
-    .content-area,
-    .container {
-        min-width: 90%; /* Increase the width for better mobile fit */
-        padding: 10px; /* Adjust padding for smaller screens */
+    .event-item {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        text-align: center;
     }
 
-    .site-header,
-    .site-footer {
-        padding: 10px 0; /* Reduce padding for headers and footers */
+    .event-img {
+        width: 100%;
+        max-width: 260px;
+        height: auto;
+        border-radius: 4px;
+        filter: grayscale(80%) brightness(1.1);
+        box-shadow: 0 0 20px rgba(180, 0, 255, 0.1);
     }
 
-    p {
-        font-family: 'Crimson Text', 'Libre Baskerville', serif;
-        font-size: 1.2rem; /* Adjust font size for paragraph text */
-        line-height: 1.5; /* Ensure good readability */
+    .event-info {
+        padding: 0 1rem;
     }
 
-    .menu-item {
-        font-size: 1rem; /* Adjust menu item font size */
+    .event-info h2 {
+        font-size: 1.2rem;
     }
 
-    .intro-section {
-        margin-bottom: 10px; /* Reduce margin for tighter spacing */
+    .event-info p {
+        font-size: 0.95rem;
     }
-
-    .content-section {
-        padding: 10px; /* Adjust padding for smaller screens */
-        font-family:  "UniFrakturCook", "Cinzel Decorative", serif;
-
-    }
-
-    h1, h2, h3 {
-        font-family:   "UniFrakturCook", "Cinzel Decorative", serif;
-        font-size: 1.25rem;
-        color: #ffd700; /* Goldene Farbe passend zur Gothic-Ästhetik */
-        text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
-        
-    }
-
-    footer .container {
-        flex-direction: column; /* Stack the links vertically */
-        
-        padding: 0 10px; /* Adjust padding for smaller screens */
-    }
-
-    footer .container p {
-        margin: 5px 0; /* Add margin between footer links */
-        font-size: 0.9rem; /* Slightly smaller font size for smaller screens */
-    }
-    
 }

@@ -1,62 +1,61 @@
-/* Responsive Adjustments */
+/* Google Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cormorant+Garamond:wght@400;700&display=swap');
+
+/* =======================================
+   ✦ FAUSTUS CLUB – Responsive Navigation
+   File: nav-res.css
+========================================= */
+
+/* Tablet Anpassungen */
 @media (max-width: 1024px) {
     .main-navigation {
-        padding: 0px;
+        padding: 0.5rem;
         border-radius: 8px;
-        margin-top: 1rem;
     }
 
-    .main-navigation .nav-menu {
+    .nav-menu {
         flex-direction: column;
         align-items: center;
+        gap: 1.5rem;
     }
 
-    .main-navigation .nav-link {
-        font-size: 18px;
+    .nav-menu li a {
+        font-size: 1.2rem;
+        font-family: 'Cinzel', 'Cormorant Garamond', serif;
+        letter-spacing: 0.03em;
     }
 }
 
- 
-/* Responsive Adjustments */
+/* Mobile Navigation Toggle + Menü */
 @media (max-width: 768px) {
-    .main-navigation {
-        padding: 0px;
-        border-radius: 8px;
-        margin-top: 1rem;
-    }
-
-    .main-navigation .nav-menu {
-        flex-direction: column;
-        gap: 15px;
-        align-items: center;
-    }
-
-    .main-navigation .nav-link {
-        font-size: 18px;
-    }
-
     .nav-wrapper {
         display: flex;
-        flex-direction: column;
-        justify-content: center;
+        justify-content: space-between;
         align-items: center;
-        width: 100%;
     }
 
     .menu-toggle {
-        position: relative;
-        width: fit-content;
         display: flex;
         justify-content: center;
         align-items: center;
+        padding: 0.75rem 1rem;
+        font-size: 1.2rem;
+        color: #d4af37;
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-family: 'Cinzel', 'Cormorant Garamond', serif;
     }
 
-    /* Standard: Mobile Navigation ausblenden */
+    .menu-toggle:hover {
+        color: #ffffff;
+    }
+
     .nav-menu {
+        position: relative;
         display: none;
         flex-direction: column;
         background-color: rgba(0, 0, 0, 0.95);
-        position: absolute;
         top: 100%;
         left: 0;
         right: 0;
@@ -76,139 +75,35 @@
         visibility: visible;
         animation: fadeIn 0.3s ease-in-out;
     }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+
+    .nav-menu li a {
+        font-size: 1rem;
+        padding: 0.5rem 1rem;
+        background-color: rgba(0, 0, 0, 0.75);
+        border-radius: 4px;
+        font-family: 'Cinzel', 'Cormorant Garamond', serif;
+        letter-spacing: 0.03em;
+    }
+
+    .nav-menu li a:hover {
+        color: #ffffff;
+    }
 }
 
-/* Glowing Border Effect for Smaller Screens */
+/* Tiny Screens */
 @media (max-width: 480px) {
-    .main-navigation {
-        border: 1px solid #a3872d;
-        padding: 0px;
+    .nav-menu li a {
+        font-size: 0.95rem;
+        font-family: 'Cinzel', 'Cormorant Garamond', serif;
     }
-
-    .main-navigation .nav-menu {
-        gap: 10px;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .main-navigation .nav-link {
-        font-size: 16px;
-    }
-}
-
-.nav-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-/* Basiszustand – Desktop */
-.menu-toggle {
-  display: none !important;
-}
-
-/* Mobile: sichtbar ab max-width: 768px */
-@media (max-width: 768px) {
-  .menu-toggle {
-    display: flex !important;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .nav-menu {
-    display: none;
-    flex-direction: column;
-    background-color: rgba(0, 0, 0, 0.95);
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    width: 100%;
-    padding: 1rem;
-    border-radius: 0 0 12px 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-    opacity: 0;
-    visibility: hidden;
-    z-index: 999;
-    transition: opacity 0.3s ease-in-out;
-  }
-
-  .nav-menu.active {
-    display: flex;
-    opacity: 1;
-    visibility: visible;
-    animation: fadeIn 0.3s ease-in-out;
-  }
-
-  .nav-menu .menu-item {
-    font-size: 18px;
-    color: #d4af37;
-    padding: 0.5rem 1rem;
-    text-align: center;
-    text-decoration: none;
-    transition: color 0.3s ease;
-    background-color: rgba(0, 0, 0, 0.75);
-    border: 0px solid #d4af37;
-  }
-
-  .nav-menu .menu-item:hover {
-    color: #ffffff;
-  }
-
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-
-  .nav-menu.active {
-    animation: fadeIn 0.3s ease-in-out;
-  }
-}
-
-.main-navigation {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    position: relative;
-    z-index: 1000; /* higher than other elements */
-  }
-
-  .menu-toggle {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto;
-    padding: 0.75rem 1rem;
-    text-align: center;
-  }
-
-/* Ensure .nav-menu spans correctly */
-.nav-menu {
-    position: relative;
-    top: 0%;        /* below the hamburger */
-    left: 0;
-    right: 0;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.95);
-    padding: 1rem;
-    border-radius: 0 0 12px 12px;
-    display: none;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease-in-out;
-    z-index: 999;
-}
-
-/* Active state for visibility */
-.nav-menu.active {
-    display: flex;
-    opacity: 1;
-    visibility: visible;
-    flex-direction: column;
 }
